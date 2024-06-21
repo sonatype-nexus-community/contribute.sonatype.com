@@ -1,0 +1,13 @@
+$custom-colors: (
+  'accent-pinkish': #a830c2,
+  'accent-hot-pink': #ff008c,
+  'accent-coral': #ff5869,
+  'accent-tangerine': #f28a00,
+  'accent-sun': #f7d636,
+  'accent-glow': #91f0a1,
+  'accent-go': #1aba73,
+  'accent-turquoise': #4fb2a6,
+  'accent-water': #2682ff,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);

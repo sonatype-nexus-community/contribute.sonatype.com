@@ -1,6 +1,6 @@
 ---
-title: Blog
-menu: {main: {weight: 30}}
+title: Projects
+menu: {main: {weight: 10}}
 ---
 
 This is the **blog** section. It has two categories: News and Releases.
