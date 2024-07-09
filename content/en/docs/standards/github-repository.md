@@ -53,7 +53,7 @@ The following Branch protection rules should be applied.
   * **Require review from Code Owners** Yes ✅
   * **Allow specified actors to bypass required pull requests** No ❌
 * **Require status checks to pass before merging** Yes ✅
-  * *Checks according to [Code Quality](/docs/standards/code-quality/) and [Dependency Management](/docs/standards/dependency-management/) must be covered*
+  * *Checks according to [Code Quality]({{< ref "/docs/standards/code-quality" >}}) and [Dependency Management]({{< ref "/docs/standards/dependency-management" >}}) must be covered*
 * **Require signed commits** Yes ✅
 * **Allow force pushes** No ❌
 * **Allow deletions** No ❌
@@ -72,7 +72,7 @@ Set both `Flagship-Project` and `Project-Status` accordingly.
 
 #### Code security and analysis
 
-* **Private vulnerability reporting** No ❌ - See [Reporting Issues](/docs/contributing/reporting-issues/)
-* **Dependabot** No ❌ - See [Dependency Management](docs/standards/dependency-management/)
-* **Code Scanning** No ❌ - See [Code Quality](docs/standards/code-quality/)
+* **Private vulnerability reporting** No ❌ - See [Reporting Issues]({{< ref "/docs/contributing/reporting-issues" >}})
+* **Dependabot** No ❌ - See [Dependency Management]({{< ref "/docs/standards/dependency-management" >}})
+* **Code Scanning** No ❌ - See [Code Quality]({{< ref "/docs/standards/code-quality" >}})
 * **Secret scanning** <span class="-text-accent-hot-pink">TBC</span>

@@ -18,5 +18,4 @@ weight: 20
 
 ### GitHub Repository Configuration
 
-See our [GitHub Repository Configuration Standards](/docs/standards/github-repository).
-
+See our [GitHub Repository Configuration Standards]({{< ref "/docs/standards/github-repository" >}}).
