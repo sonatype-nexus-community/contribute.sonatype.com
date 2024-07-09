@@ -1,5 +1,5 @@
 ---
-title: Projects
+title: Our Community Projects
 menu: {main: {weight: 10}}
 ---
 

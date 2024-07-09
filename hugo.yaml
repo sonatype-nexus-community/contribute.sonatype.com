@@ -1,5 +1,5 @@
 baseURL: https://handbook.sonatype-community.com
-title: Sonatype Community Handbook
+title: Sonatype Open Source Community Handbook
 
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
 
@@ -19,9 +19,9 @@ enableGitInfo: true
 # disableKinds: [taxonomy, taxonomyTerm]
 
 # You can add your own taxonomies
-taxonomies:
-  tag: tags
-  category: categories
+# taxonomies:
+#   tag: tags
+#   category: categories
 
 # Highlighting config
 pygmentsCodeFences: true
@@ -46,7 +46,7 @@ imaging:
 languages:
   en:
     languageName: English
-    title: Sonatype Community Handbook
+    title: Sonatype Open Source Community Handbook
     params:
       description: Engaging with Sonatype Community Projects
   # # cSpell:disable
@@ -91,13 +91,13 @@ outputs:
 params:
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
-    taxonomyCloud: [tags, categories]
+    taxonomyCloud: [] #[tags, categories]
 
     # If used, must have same length as taxonomyCloud
-    taxonomyCloudTitle: [Tag Cloud, Categories]
+    taxonomyCloudTitle: [] #[Tag Cloud, Categories]
 
     # set taxonomyPageHeader = [] to hide taxonomies on the page headers
-    taxonomyPageHeader: [tags, categories]
+    taxonomyPageHeader: [] #[tags, categories]
 
   privacy_policy: https://www.sonatype.com/privacy-policy
 
