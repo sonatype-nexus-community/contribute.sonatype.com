@@ -13,8 +13,8 @@ We thank you in advance for contributing to our Open Source Community!
 Contributions come is all shapes and sizes - and we welcome them all. We ask that for the benefit of the wider community the following guidelines are followed depending on the contribution you wish to make.
 
 - **💡Want to discuss an idea?**  
-  *Read our guide on discussions and ideas [here](/docs/contributing/discussing-ideas/).*
+  *Read our guide on discussions and ideas [here]({{< ref "/docs/contributing/discussing-ideas" >}}).*
 - **🪲 Want to report a bug or issue?**  
-  *Read our guide on issue reporting [here](/docs/contributing/reporting-issues/).*
+  *Read our guide on issue reporting [here]({{< ref "/docs/contributing/reporting-issues" >}}).*
 - **🧑‍💻 Want to contribute a change?**  
-  *Read our guide on sumitting contributions [here](/docs/contributing/submitting).*
+  *Read our guide on sumitting contributions [here]({{< ref "/docs/contributing/submitting" >}}).*
