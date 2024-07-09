@@ -1,28 +1,54 @@
-# How to Contribute
+# How to contribute
 
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+It's great you're here and reading this guide, because we need volunteers to help keep this project active and alive for the greater benefit of everyone!
 
-## Contributor License Agreement
+- [Engaging with this project](#engaging-with-this-project)
+- [Development Guidelines](#development-guidelines)
+  - [Coding Conventions](#coding-conventions)
+- [Testing](#testing)
+- [Submitting Contributions](#submitting-contributions)
 
-Contributions to this project must be accompanied by a Contributor License
-Agreement. You (or your employer) retain the copyright to your contribution;
-this simply gives us permission to use and redistribute your contributions as
-part of the project. Head over to <https://cla.developers.google.com/> to see
-your current agreements on file or to sign a new one.
+## Engaging with this project
 
-You generally only need to submit a CLA once, so if you've already submitted one
-(even if it was for a different project), you probably don't need to do it
-again.
+Here are some important resources:
+- [GitHub Issues](https://github.com/sonatype-nexus-community/community-handbook.sonatype.com/issues) - a place for bugs to be raised and feature requests made
+- [GitHub Discussions](https://github.com/sonatype-nexus-community/community-handbook.sonatype.com/discussions) - a place to discuss ideas or real-world usage
 
-## Code reviews
+## Development Guidelines
 
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
+*TODO: Explain in detail what development standards must be adhered to when contributions are made.*
 
-## Community Guidelines
+*You might include:*
+- Testing requirements
+- Explanation of PR Checks
+- What to expect from a PR reviewer/approver (such as expected time to response)
 
-This project follows
-[Google's Open Source Community Guidelines](https://opensource.google.com/conduct/).
+### Coding Conventions
+
+- In order to help verify the authenticity of contributed code, we ask that your [commits be signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits). 
+  All commits must be signed off to show that you agree to publish your changes under the current terms and licenses of the project.
+  
+  Here are some notes we found helpful in configuring a local environment to automatically sign git commits:
+    - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
+    - [Telling Git about your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-gpg-key)
+    
+- TODO: Explain code style, convention & quality standards (and any associated checks that will be run)
+
+## Testing
+
+*TODO: Explain in detail:*
+
+- How to run tests, including dependencies that might need installing or configuring
+- Environmental configuration that may be required
+- Consideration when writing tests (i.e. don't depend on *X*)
+
+*You might wish to break this out into different sub-sections if you have, for example, unit tests and integration tests with differing requirements.*
+
+
+## Submitting Contributions
+
+Please send Pull Requests that:
+1. Have a singluar purpose, and that is backed by one or more GitHub Issues in this project
+2. Are clear
+3. Have appropriate test coverage for the Pull Requests purpose
+4. Meet our Code Style Convention (see [above](#develpoment-guidelines))
