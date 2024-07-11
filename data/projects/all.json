@@ -1,0 +1,122 @@
+[
+    {
+        "name": "AuditJS",
+        "image": "audit-js.png",
+        "description": "Scan JavaScript (node.js inclusive) projects for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "auditjs",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": true
+        }
+    },
+    {
+        "name": "Bach",
+        "image": "bach.png",
+        "description": "Scan PHP and Composer projects for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "bach",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": false
+        }
+    },
+    {
+        "name": "Chelsea",
+        "image": "chelsea.png",
+        "description": "Scan RubyGems powered projects for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "chelsea",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": true
+        }
+    },
+    {
+        "name": "Cheque",
+        "image": "cheque.png",
+        "description": "Scan C projects for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "cheque",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": false
+        }
+    },
+    {
+        "name": "Jake",
+        "image": "jake.png",
+        "description": "Scan Python and Conda environments for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "jake",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": true
+        }
+    },
+    {
+        "name": "Nancy",
+        "image": "nancy.png",
+        "description": "Scan Golang projects for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "nancy",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": true
+        }
+    },
+    {
+        "name": "OysterR",
+        "image": "oyster.png",
+        "description": "Scan R code for vulnerable third-party dependencies.",
+        "active": true,
+        "flagship": true,
+        "repository": "oysteR",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": false
+        }
+    },
+    {
+        "name": "Pants",
+        "image": "pants.png",
+        "description": "Cargo subcommand provides a project bill of materials and identifies vulnerabilities.",
+        "active": true,
+        "flagship": true,
+        "repository": "cargo-pants",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": false
+        }
+    },
+    {
+        "name": "Sherlock Trunks",
+        "image": "sherlock-trunks.png",
+        "description": "A Gradle plugin that scans the dependencies of a Gradle project for vulnerabilities.",
+        "active": true,
+        "flagship": true,
+        "repository": "scan-gradle-plugin",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": true
+        }
+    },
+    {
+        "name": "Ahab",
+        "image": "ahab.png",
+        "description": "Scan base OS (debian, fedora, alpine) packages for vulnerabilities.",
+        "active": false,
+        "flagship": false,
+        "repository": "ahab",
+        "works_with": {
+            "ossindex": true,
+            "sonatype_lifecycle": true
+        }
+    }
+]
