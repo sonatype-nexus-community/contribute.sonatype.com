@@ -118,5 +118,17 @@
             "ossindex": true,
             "sonatype_lifecycle": true
         }
+    },
+    {
+        "name": "The CLA Bot",
+        "image": "",
+        "description": "Also known as Paul Botsco - this is our CLA Bot.",
+        "active": true,
+        "flagship": false,
+        "repository": "the-cla",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_lifecycle": false
+        }
     }
 ]
