@@ -16,6 +16,9 @@ weight: 20
 
 - Create a new GitHub Repository in the [Sonatype Community GitHub Organization](https://github.com/organizations/sonatype-nexus-community/repositories/new) using the [Community Project Template](https://github.com/sonatype-nexus-community/community-project-template) as the template repository
 
+    This will cause a number of default files to be placed into your new repository.
+    It will also automatically inherit a number of Organization defined files that you do not need to redefine in your project.
+
 ### GitHub Repository Configuration
 
 See our [GitHub Repository Configuration Standards]({{< ref "/docs/standards/github-repository" >}}).
