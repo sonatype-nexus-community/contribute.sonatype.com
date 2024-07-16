@@ -67,27 +67,27 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
   code_quality:
-        name: Code Quality
-        runs-on: ubuntu-latest
-        timeout-minutes: 5
-        steps:
-            - name: Checkout Code
-              uses: actions/checkout@v4
-              with:
-                  # Disabling shallow clone is recommended for improving relevancy of reporting
-                  fetch-depth: 0
+    name: Code Quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
-            - name: Install Node.js dependencies
-              run:
-                '[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci ||
-                true'
+      - name: Install Node.js dependencies
+        run:
+          '[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci ||
+          true'
 
-            - name: Sonatype Lifecycle Evaluation
-              uses: sonatype-nexus-community/iq-github-action@master
-              with:
-                  serverUrl: ${{ secrets.SONATYPE_LIFECYCLE_URL }}
-                  username: ${{ secrets.SONATYPE_LIFECYCLE_USERNAME }}
-                  password: ${{ secrets.SONATYPE_LIFECYCLE_PASSWORD }}
-                  applicationId: ${{ env.LC_APPLICATION_ID }}
-                  stage: Build
-                  target: .
+      - name: Sonatype Lifecycle Evaluation
+        uses: sonatype-nexus-community/iq-github-action@v2
+        with:
+          serverUrl: ${{ secrets.SONATYPE_LIFECYCLE_URL }}
+          username: ${{ secrets.SONATYPE_LIFECYCLE_USERNAME }}
+          password: ${{ secrets.SONATYPE_LIFECYCLE_PASSWORD }}
+          applicationId: ${{ env.LC_APPLICATION_ID }}
+          stage: Build
+          target: .

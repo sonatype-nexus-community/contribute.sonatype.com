@@ -4,37 +4,51 @@
 
 <div class="td-card card border me-4 mb-4" style="min-width: 25%;">
     <div class="card-header">
-    <h4>{{ .name | markdownify }}</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4>
+                        {{ .name | markdownify }}
+                    </h4>
+                </div>
+                <div class="col text-end">
+                    {{ range .tags -}}
+                        <span class="badge">{{ . | markdownify }}</span>
+                    {{ end -}}
+                </div>
+            </div>
+        </div>
+    
     </div>    
     <div class="card-body mb-2" style="min-height: 200px">
-    <div class="container">
-        <div class="row mb-4">
-        <div class="col text-center">
-            {{ $imagename := .image }}
-            {{ with resources.GetMatch (printf "images/%s" ($imagename|string)) }}
-            <img src="{{ .RelPermalink }}" height="125" />
-            {{ end }}
+        <div class="container">
+            <div class="row mb-4">
+            <div class="col text-center">
+                {{ $imagename := .image }}
+                {{ with resources.GetMatch (printf "images/%s" ($imagename|string)) }}
+                <img src="{{ .RelPermalink }}" height="125" />
+                {{ end }}
+            </div>
+            <div class="col">
+                {{ .description | markdownify -}}
+            </div>
+            </div>
+            <div class="row pt-4 border-top">
+            <div class="col-4 text-end">
+                Works with:
+            </div>
+            <div class="col-4 text-center">
+                {{ if .works_with.ossindex }}
+                <a href="https://ossindex.sonatype.org/" target="_blank"><img src="{{ $ossindexlogo.RelPermalink }}" height="25" alt="Sonatype OSS Index" /></a>
+                {{ end }}
+            </div>
+            <div class="col-4 text-center">
+                {{ if .works_with.sonatype_lifecycle }}
+                <a href="https://www.sonatype.com/products/open-source-security-dependency-management" target="_blank"><img src="{{ $lifecyclelogo.RelPermalink }}" height="25" alt="Sonatype Lifecycle" /></a>
+                {{ end }}
+            </div>
+            </div>
         </div>
-        <div class="col">
-            {{ .description | markdownify -}}
-        </div>
-        </div>
-        <div class="row pt-4 border-top">
-        <div class="col-4 text-end">
-            Works with:
-        </div>
-        <div class="col-4 text-center">
-            {{ if .works_with.ossindex }}
-            <a href="https://ossindex.sonatype.org/" target="_blank"><img src="{{ $ossindexlogo.RelPermalink }}" height="25" alt="Sonatype OSS Index" /></a>
-            {{ end }}
-        </div>
-        <div class="col-4 text-center">
-            {{ if .works_with.sonatype_lifecycle }}
-            <a href="https://www.sonatype.com/products/open-source-security-dependency-management" target="_blank"><img src="{{ $lifecyclelogo.RelPermalink }}" height="25" alt="Sonatype Lifecycle" /></a>
-            {{ end }}
-        </div>
-        </div>
-    </div>
     </div>
     <div class="card-footer text-center">
     <a href="https://github.com/sonatype-nexus-community/{{ .repository }}" target="_blank">

@@ -9,7 +9,11 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": true
-        }
+        },
+        "tags": [
+            "javascript",
+            "nodejs"
+        ]
     },
     {
         "name": "Bach",
@@ -21,7 +25,11 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": false
-        }
+        },
+        "tags": [
+            "php",
+            "composer"
+        ]
     },
     {
         "name": "Chelsea",
@@ -33,7 +41,10 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": true
-        }
+        },
+        "tags": [
+            "rubygems"
+        ]
     },
     {
         "name": "Cheque",
@@ -45,7 +56,10 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": false
-        }
+        },
+        "tags": [
+            "c"
+        ]
     },
     {
         "name": "Jake",
@@ -57,7 +71,12 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": true
-        }
+        },
+        "tags": [
+            "python",
+            "conda",
+            "pip"
+        ]
     },
     {
         "name": "Nancy",
@@ -69,7 +88,10 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": true
-        }
+        },
+        "tags": [
+            "golang"
+        ]
     },
     {
         "name": "OysterR",
@@ -81,7 +103,11 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": false
-        }
+        },
+        "tags": [
+            "r",
+            "cran"
+        ]
     },
     {
         "name": "Pants",
@@ -93,7 +119,11 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": false
-        }
+        },
+        "tags": [
+            "rust",
+            "cargo"
+        ]
     },
     {
         "name": "Sherlock Trunks",
@@ -105,7 +135,11 @@
         "works_with": {
             "ossindex": true,
             "sonatype_lifecycle": true
-        }
+        },
+        "tags": [
+            "java",
+            "gradle"
+        ]
     },
     {
         "name": "Ahab",
@@ -129,6 +163,25 @@
         "works_with": {
             "ossindex": false,
             "sonatype_lifecycle": false
-        }
+        },
+        "tags": [
+            "cla"
+        ]
+    },
+    {
+        "name": "Sonatype Lifecycle GitHub Action",
+        "image": "github-mark.png",
+        "description": "GitHub Action for invoking Sonatype Lifecycle scans.",
+        "active": true,
+        "flagship": false,
+        "repository": "iq-github-action",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_lifecycle": true
+        },
+        "tags": [
+            "ci",
+            "github"
+        ]
     }
 ]
