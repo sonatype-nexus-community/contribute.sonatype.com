@@ -220,5 +220,7 @@ module:
       disable: false
 
 services:
+  # Google Analytics is only enabled in Production builds
+  # https://www.docsy.dev/docs/adding-content/feedback/#setup
   services.googleAnalytics:
     ID: G-2MCZHL64R8
