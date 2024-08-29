@@ -88,5 +88,5 @@ jobs:
           iq-server-url: ${{ vars.SONATYPE_PLATFORM_URL }}
           username: ${{ secrets.SONATYPE_LIFECYCLE_USERNAME }}
           password: ${{ secrets.SONATYPE_LIFECYCLE_PASSWORD }}
-          application-id: 'the-cla'
+          application-id: 'community-handbook.sonatype.com'
           scan-targets: '.'
