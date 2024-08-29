@@ -1,4 +1,4 @@
-baseURL: https://handbook.sonatype-community.com
+baseURL: https://contribute.sonatype.com
 title: Sonatype Open Source Community Handbook
 
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
@@ -199,11 +199,11 @@ params:
       - name: GitHub
         url: https://github.com/sonatype-nexus-community
         icon: fab fa-github
-        desc: Development takes place here!
-      - name: Slack
-        url: https://example.org/slack
-        icon: fab fa-slack
-        desc: Chat with other project developers
+        desc: Development and discussion takes place here!
+      # - name: Slack
+      #   url: https://example.org/slack
+      #   icon: fab fa-slack
+      #   desc: Chat with other project developers
       # - name: Developer mailing list
       #   url: https://example.org/mail
       #   icon: fa fa-envelope
