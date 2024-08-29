@@ -1,8 +1,90 @@
 /**
+ * Theme colour backgrounds
+ */
+.bg-accent-pinkish {
+    background-color: $accent-pinkish;
+}
+
+.bg-accent-hot-pink {
+    background-color: $accent-hot-pink;
+}
+
+.bg-accent-coral {
+    background-color: $accent-coral;
+}
+
+.bg-accent-tangerine {
+    background-color: $accent-tangerine;
+}
+
+.bg-accent-sun {
+    background-color: $accent-sun;
+}
+
+.bg-accent-glow {
+    background-color: $accent-glow;
+}
+
+.bg-accent-go {
+    background-color: $accent-go;
+}
+
+.bg-accent-turquoise {
+    background-color: $accent-turquoise;
+}
+
+.bg-accent-water {
+    background-color: $accent-water;
+}
+
+.text-accent-pinkish {
+    color: $accent-pinkish;
+}
+
+.text-accent-hot-pink {
+    color: $accent-hot-pink;
+}
+
+.text-accent-coral {
+    color: $accent-coral;
+}
+
+.text-accent-tangerine {
+    color: $accent-tangerine;
+}
+
+.text-accent-sun {
+    color: $accent-sun;
+}
+
+.text-accent-glow {
+    color: $accent-glow;
+}
+
+.text-accent-go {
+    color: $accent-go;
+}
+
+.text-accent-turquoise {
+    color: $accent-turquoise;
+}
+
+.text-accent-water {
+    color: $accent-water;
+}
+
+/**
+ * Project Card
+ */
+h4.project-card-title {
+    margin: 0.25rem 0;
+}
+
+/**
  * Badge CSS
  */
 span.badge {
-    background-color: $primary;
     border-radius: 3px;
     padding: 3px 6px;
 }
+

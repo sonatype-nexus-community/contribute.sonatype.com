@@ -5,6 +5,8 @@
         "description": "Scan JavaScript (node.js inclusive) projects for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "auditjs",
         "works_with": {
             "ossindex": true,
@@ -21,6 +23,8 @@
         "description": "Scan PHP and Composer projects for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "bach",
         "works_with": {
             "ossindex": true,
@@ -37,6 +41,8 @@
         "description": "Scan RubyGems powered projects for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "chelsea",
         "works_with": {
             "ossindex": true,
@@ -52,6 +58,8 @@
         "description": "Scan C projects for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "cheque",
         "works_with": {
             "ossindex": true,
@@ -67,6 +75,8 @@
         "description": "Scan Python and Conda environments for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "jake",
         "works_with": {
             "ossindex": true,
@@ -84,6 +94,8 @@
         "description": "Scan Golang projects for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "nancy",
         "works_with": {
             "ossindex": true,
@@ -99,6 +111,8 @@
         "description": "Scan R code for vulnerable third-party dependencies.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "oysteR",
         "works_with": {
             "ossindex": true,
@@ -115,6 +129,8 @@
         "description": "Cargo subcommand provides a project bill of materials and identifies vulnerabilities.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "cargo-pants",
         "works_with": {
             "ossindex": true,
@@ -131,6 +147,8 @@
         "description": "A Gradle plugin that scans the dependencies of a Gradle project for vulnerabilities.",
         "active": true,
         "flagship": true,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "scan-gradle-plugin",
         "works_with": {
             "ossindex": true,
@@ -147,6 +165,8 @@
         "description": "Scan base OS (debian, fedora, alpine) packages for vulnerabilities.",
         "active": false,
         "flagship": false,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "ahab",
         "works_with": {
             "ossindex": true,
@@ -159,6 +179,8 @@
         "description": "Also known as Paul Botsco - this is our CLA Bot.",
         "active": true,
         "flagship": false,
+        "graduated": false,
+        "graduated_link": null,
         "repository": "the-cla",
         "works_with": {
             "ossindex": false,
@@ -174,6 +196,8 @@
         "description": "GitHub Action for invoking Sonatype Lifecycle scans.",
         "active": true,
         "flagship": false,
+        "graduated": true,
+        "graduated_link": "https://help.sonatype.com/en/sonatype-github-actions.html",
         "repository": "iq-github-action",
         "works_with": {
             "ossindex": false,

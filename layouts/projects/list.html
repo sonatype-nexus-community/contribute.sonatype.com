@@ -2,13 +2,22 @@
 
 {{ $slug := .Page.Slug }}
 
-{{ if (and .Parent .Parent.IsHome) -}}
-  {{/* All Projects Page */ -}}
-  {{ $.Scratch.Set "projects" (where .Site.Data.projects.all "active" true) -}}
+{{ $allProjects := .Site.Data.projects.all }}
+{{ $allActiveProjects := where .Site.Data.projects.all "active" true }}
+{{ $allArchivedProjects := where .Site.Data.projects.all "active" false }}
+{{ $allFlagshipProjects := where .Site.Data.projects.all "flagship" true }}
+{{ $allGraduatedProjects := where .Site.Data.projects.all "graduated" true }}
+
+{{ if eq $slug "active" -}}
+  {{ $.Scratch.Set "projects" $allActiveProjects -}}
 {{ else if eq $slug "archived" -}}
-  {{ $.Scratch.Set "projects" (where .Site.Data.projects.all "active" false) -}}
+  {{ $.Scratch.Set "projects" $allArchivedProjects -}}
+{{ else if eq $slug "flagship" -}}
+  {{ $.Scratch.Set "projects" $allFlagshipProjects -}}
+{{ else if eq $slug "graduated" -}}
+  {{ $.Scratch.Set "projects" $allGraduatedProjects -}}
 {{ else -}}
-  {{ $.Scratch.Set "projects" (where .Site.Data.projects.all "flagship" true) -}}
+  {{ $.Scratch.Set "projects" $allProjects -}}
 {{ end -}}
 
 {{ .Render "content" }}
