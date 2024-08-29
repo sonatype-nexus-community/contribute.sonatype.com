@@ -64,7 +64,7 @@
     </div>
     <div class="card-footer text-center">
         {{ if .graduated }}
-            <a href="{{ .graduated_link }}" target="_blank">See official Sonatype Documentation</a>
+            <a href="{{ .graduated_link }}" target="_blank" rel="noopener">See official Sonatype Documentation</a>
         {{else}}
         <a href="https://github.com/sonatype-nexus-community/{{ .repository }}" target="_blank">
             <img src="{{ $githublogo.RelPermalink }}" height="25" />
