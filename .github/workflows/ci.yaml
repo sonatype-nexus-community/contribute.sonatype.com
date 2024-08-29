@@ -78,8 +78,8 @@ jobs:
 
       - name: Install Node.js dependencies
         run:
-          '[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci ||
-          true'
+          '[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm install
+          --production || true'
 
       - name: Sonatype Lifecycle Evaluation
         id: evaluate
