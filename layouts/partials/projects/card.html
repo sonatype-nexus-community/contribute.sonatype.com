@@ -7,13 +7,21 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h4>
+                    <h4 class="project-card-title">
+                        {{ if .flagship }}
+                            <i class="text-accent-coral fa-solid fa-flag me-2" title="Flagship Project"></i>
+                        {{ end }}
                         {{ .name | markdownify }}
                     </h4>
                 </div>
                 <div class="col text-end">
+                    {{ if not .active }}
+                        <span class="badge bg-accent-water" title="This project has been archived - you can still check it out, but it is not receiving updates or maintenance.">ARCHIVED</span>
+                    {{ else if .graduated }}
+                        <span class="badge bg-accent-hot-pink">GRADUATED</span>
+                    {{ end }}
                     {{ range .tags -}}
-                        <span class="badge">{{ . | markdownify }}</span>
+                        <span class="badge bg-primary">{{ . | markdownify }}</span>
                     {{ end -}}
                 </div>
             </div>
@@ -34,25 +42,33 @@
             </div>
             </div>
             <div class="row pt-4 border-top">
-            <div class="col-4 text-end">
-                Works with:
-            </div>
-            <div class="col-4 text-center">
-                {{ if .works_with.ossindex }}
-                <a href="https://ossindex.sonatype.org/" target="_blank"><img src="{{ $ossindexlogo.RelPermalink }}" height="25" alt="Sonatype OSS Index" /></a>
-                {{ end }}
-            </div>
-            <div class="col-4 text-center">
-                {{ if .works_with.sonatype_lifecycle }}
-                <a href="https://www.sonatype.com/products/open-source-security-dependency-management" target="_blank"><img src="{{ $lifecyclelogo.RelPermalink }}" height="25" alt="Sonatype Lifecycle" /></a>
-                {{ end }}
-            </div>
+                <div class="col-4 text-end">
+                    {{ if or (not .active) .graduated }}
+                    Worked with:
+                    {{ else }}
+                    Works with:
+                    {{ end }}
+                </div>
+                <div class="col-4 text-center">
+                    {{ if .works_with.ossindex }}
+                    <a href="https://ossindex.sonatype.org/" target="_blank"><img src="{{ $ossindexlogo.RelPermalink }}" height="25" alt="Sonatype OSS Index" /></a>
+                    {{ end }}
+                </div>
+                <div class="col-4 text-center">
+                    {{ if .works_with.sonatype_lifecycle }}
+                    <a href="https://www.sonatype.com/products/open-source-security-dependency-management" target="_blank"><img src="{{ $lifecyclelogo.RelPermalink }}" height="25" alt="Sonatype Lifecycle" /></a>
+                    {{ end }}
+                </div>
             </div>
         </div>
     </div>
     <div class="card-footer text-center">
-    <a href="https://github.com/sonatype-nexus-community/{{ .repository }}" target="_blank">
-        <img src="{{ $githublogo.RelPermalink }}" height="25" />
-    </a>
+        {{ if .graduated }}
+            <a href="{{ .graduated_link }}" target="_blank">See official Sonatype Documentation</a>
+        {{else}}
+        <a href="https://github.com/sonatype-nexus-community/{{ .repository }}" target="_blank">
+            <img src="{{ $githublogo.RelPermalink }}" height="25" />
+        </a>
+        {{ end }}
     </div>
 </div>

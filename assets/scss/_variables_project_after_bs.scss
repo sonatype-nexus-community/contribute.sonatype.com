@@ -1,13 +1,23 @@
+$accent-pinkish: #a830c2;
+$accent-hot-pink: #ff008c;
+$accent-coral: #ff5869;
+$accent-tangerine: #f28a00;
+$accent-sun: #f7d636;
+$accent-glow: #91f0a1;
+$accent-go: #1aba73;
+$accent-turquoise: #4fb2a6;
+$accent-water: #2682ff;
+
 $custom-colors: (
-  'accent-pinkish': #a830c2,
-  'accent-hot-pink': #ff008c,
-  'accent-coral': #ff5869,
-  'accent-tangerine': #f28a00,
-  'accent-sun': #f7d636,
-  'accent-glow': #91f0a1,
-  'accent-go': #1aba73,
-  'accent-turquoise': #4fb2a6,
-  'accent-water': #2682ff,
+  'accent-pinkish': $accent-pinkish,
+  'accent-hot-pink': $accent-hot-pink,
+  'accent-coral': $accent-coral,
+  'accent-tangerine': $accent-tangerine,
+  'accent-sun': $accent-sun,
+  'accent-glow': $accent-glow,
+  'accent-go': $accent-go,
+  'accent-turquoise': $accent-turquoise,
+  'accent-water': $accent-water,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
