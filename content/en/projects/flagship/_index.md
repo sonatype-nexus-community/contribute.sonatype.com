@@ -1,5 +1,6 @@
 ---
 title: Flagship Projects
+slug: flagship
 weight: 20
 ---
 
