@@ -25,7 +25,6 @@ defaults:
 # Env Vars
 env:
   HUGO_VERSION: 0.128.0
-  LC_APPLICATION_ID: $(echo "${{ github.repository }}" | cut -d '/' -f2)
 
 jobs:
   # Build job
@@ -83,11 +82,11 @@ jobs:
           true'
 
       - name: Sonatype Lifecycle Evaluation
-        uses: sonatype-nexus-community/iq-github-action@v2
+        id: evaluate
+        uses: sonatype/actions/evaluate@v1.0.1
         with:
-          serverUrl: ${{ secrets.SONATYPE_LIFECYCLE_URL }}
+          iq-server-url: ${{ vars.SONATYPE_PLATFORM_URL }}
           username: ${{ secrets.SONATYPE_LIFECYCLE_USERNAME }}
           password: ${{ secrets.SONATYPE_LIFECYCLE_PASSWORD }}
-          applicationId: ${{ env.LC_APPLICATION_ID }}
-          stage: Build
-          target: .
+          application-id: 'the-cla'
+          scan-targets: '.'
