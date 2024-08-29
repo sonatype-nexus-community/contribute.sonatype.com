@@ -52,9 +52,9 @@ This is the second section
 
 {{% blocks/section type="row" %}}
 
-<!-- {{% blocks/feature icon="fab fa-app-store-ios" title="Download **from AppStore**" %}}
-Get the Goldydocs app!
-{{% /blocks/feature %}} -->
+{{% blocks/feature icon="fa-solid fa-flag" title="Checkout our Flagship Projects" url="/projects/flagship" url_text="Check them out" %}}
+  We have over 9 Flagship Projects
+{{% /blocks/feature %}}
 
 {{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="/docs/contributing" %}}
   You can contribute to this Handbook via a [Pull Request](https://github.com/sonatype-nexus-community/community-handbook.sonatype.com/pulls) or read more to find out how to contriubte to existing projects

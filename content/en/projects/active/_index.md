@@ -1,5 +1,6 @@
 ---
 title: Active Projects
+slug: active
 weight: 50
 ---
 
