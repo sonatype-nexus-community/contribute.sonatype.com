@@ -6,6 +6,8 @@ title: Discussing Ideas
 weight: 10
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+Ideas are great 💡
+
+If you want to raise one, or join the discussion, we recommend all projects use GitHub Discussions.
+
+Please make sure you follow our [Code of Conduct](https://github.com/sonatype-nexus-community/.github/blob/main/CODE_OF_CONDUCT.md) at all times.

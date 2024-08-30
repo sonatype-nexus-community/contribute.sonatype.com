@@ -6,11 +6,18 @@ title: Starting a New Project
 weight: 20
 ---
 
-{{< alert title="Note" >}}Only Sonatype Employees can execute the below procedure to create new Project within the Sonatype Open Source Community.{{< /alert >}}
+You can share your idea for a new Project by starting a [Discussion here](https://github.com/orgs/sonatype-nexus-community/discussions/new?category=project-proposal).
+
+{{< alert title="Note" >}}Only Organizational Owners can execute the below procedure to create new Project within the Sonatype Open Source Community.{{< /alert >}}
 
 ## Prerequisites
 
 - Ensure you have defined a clear purpose for the new project
+- To be a maintanier or owner of a project, you need to have previously contributed to another Sonatype Open Source Project
+
+{{< alert title="Info" >}}
+Having contributed previously means you'll have signed our CLA and understand our Community workflows.
+{{< /alert >}}
 
 ## Creating the Project
 
@@ -22,3 +29,4 @@ weight: 20
 ### GitHub Repository Configuration
 
 See our [GitHub Repository Configuration Standards]({{< ref "/docs/standards/github-repository" >}}).
+
