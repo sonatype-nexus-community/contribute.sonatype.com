@@ -6,6 +6,6 @@ title: Secrets Management
 weight: 500
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+We currently use GitHub Secrets for our Open Source Community projects.
+
+This is great but currently has one known drawback - PRs from Forks cannot access our secrets and as such Continous Integration GitHub Workflows will fail.
