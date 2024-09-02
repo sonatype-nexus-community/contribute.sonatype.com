@@ -6,7 +6,7 @@ title: Dependency Management
 weight: 300
 ---
 
-We use [Sonatype Lifecycle](https://www.sonatype.com/products/open-source-security-dependency-management) to ensure our Community Projects use only the best open-source dependenices.
+We use [Sonatype Lifecycle](https://www.sonatype.com/products/open-source-security-dependency-management) to ensure our Community Projects use only the best open-source dependencies.
 
 Each project should include Sonatype Lifecycle analysis scans during each Pull Request and upon each Release.
 
