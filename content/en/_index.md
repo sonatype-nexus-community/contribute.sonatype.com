@@ -18,7 +18,7 @@ title: Sonatype Community Projects Handbook
 Sonatype Community is a collection of Open Source projects and incubator projects maintained 
 by Sonatype with help from the Open Source Community.
 
-Some of the projects eventually [graduate]({{< ref "/projects" >}}) and become commercially supported by Sonatype, but
+Some of the projects eventually [graduate]({{< ref "/projects/graduated" >}}) and become commercially supported by Sonatype, but
 most will live here forever.  
 {{% /blocks/lead %}}
 
