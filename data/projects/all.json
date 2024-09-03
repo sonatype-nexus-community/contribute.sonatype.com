@@ -86,6 +86,13 @@
             "python",
             "conda",
             "pip"
+        ],
+        "other_links": [
+            {
+                "image": "pypi.png",
+                "title": "Available from PyPi",
+                "url": "https://pypi.org/project/jake/"
+            }
         ]
     },
     {
@@ -188,6 +195,13 @@
         },
         "tags": [
             "cla"
+        ],
+        "other_links": [
+            {
+                "image": "docker-mark-blue.png",
+                "title": "Available from Docker Hub",
+                "url": "https://hub.docker.com/r/sonatypecommunity/the-cla"
+            }
         ]
     },
     {
@@ -206,6 +220,36 @@
         "tags": [
             "ci",
             "github"
+        ]
+    },
+    {
+        "name": "Sonatype Platform Browser Extension",
+        "image": "sonatype-hex.png",
+        "description": "Web Browser Extension for Chrome and Edge to get insight from the Sonatype Platform.",
+        "active": true,
+        "flagship": true,
+        "graduated": false,
+        "graduated_link": "",
+        "repository": "sonatype-platform-browser-extension",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_lifecycle": true
+        },
+        "tags": [
+            "shift-left",
+            "developer"
+        ],
+        "other_links": [
+            {
+                "image": "chrome-webstore.png",
+                "title": "Available from the Chrome Web Store",
+                "url": "https://chrome.google.com/webstore/detail/sonatype-platform-browser/kahnhlonadjlllgnilndafpajaiepdag"
+            },
+            {
+                "image": "microsoft-store.png",
+                "title": "Available from the Microsoft Store",
+                "url": "https://microsoftedge.microsoft.com/addons/detail/sonatype-platform-browser/eimppjecdnhdmdiohjnkbjgdeaecabmg"
+            }
         ]
     }
 ]
