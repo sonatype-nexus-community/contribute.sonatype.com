@@ -6,7 +6,7 @@ title: Discussing Ideas
 weight: 10
 ---
 
-Ideas are great 💡
+Ideas are great! 💡 We welcome input from any project [users](../community_roles/user.md).
 
 If you want to raise one, or join the discussion, we recommend all projects use GitHub Discussions.
 
