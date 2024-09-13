@@ -8,13 +8,15 @@ A Project Contributor plays a pivotal role in shaping the project through code, 
 
 ## How to Become a Contributor
 
-To contribute to a project, individuals must first interact with _Paul Botsco_ to sign the Contributor License Agreement (CLA), ensuring that their contributions comply with legal requirements.
+To [contribute](../contributing) to a project, individuals must first interact with _Paul Botsco_ to sign the Contributor License Agreement (CLA), ensuring that their contributions comply with our legal requirements.
 
 _Paul Botsco_ will comment on your first pull request, providing you with the latest links and helpful information to sign the CLA.
 
 Once the CLA is signed, contributors can engage with the project by opening issues to report bugs, request features, or suggest improvements. They can also submit pull requests (PRs) to offer code, documentation, or design enhancements.
 
 In the rare event that the CLA text is updated, Paul Botsco will comment on your next pull request to guide you through the process again.
+
+This role does not require any permissions changes.
 
 **Next level:** [Project Maintainer](./maintainer.md)
 
