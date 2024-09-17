@@ -4,7 +4,7 @@ hide_readingtime: true
 weight: 40
 ---
 
-The Organization Administrators serve as the strategic overseers of the GitHub organization, responsible for governance, permissions, and maintaining the integrity of the repository ecosystem. Their role ensures seamless collaboration, safeguards project resources, and provides stewardship over organizational assets — ensuring the community's long-term sustainability and security.
+The Organization Administrators serve as the strategic overseers of our GitHub organization, responsible for governance, permissions, and maintaining the integrity of the repository ecosystem. Their role ensures seamless collaboration, safeguards project resources, and provides stewardship over organizational assets — ensuring the community's long-term sustainability and security.
 
 ## How to Become an Org Admin
 
