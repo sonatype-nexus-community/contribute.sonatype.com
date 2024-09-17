@@ -8,7 +8,7 @@ A Project Contributor plays a pivotal role in shaping the project through code, 
 
 ## How to Become a Contributor
 
-To [contribute](../contributing) to a project, individuals must first interact with _Paul Botsco_ to sign the Contributor License Agreement (CLA), ensuring that their contributions comply with our legal requirements.
+To [contribute](../contributing) to a project, individuals must first interact with _Paul Botsco_ to sign our Contributor License Agreement (CLA), ensuring that their contributions comply with our legal requirements.
 
 _Paul Botsco_ will comment on your first pull request, providing you with the latest links and helpful information to sign the CLA.
 
