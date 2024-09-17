@@ -4,7 +4,7 @@ weight: 10
 hide_readingtime: true
 ---
 
-Individuals the in following roles are the backbone of this community.
+Individuals in the following roles are the backbone of our community.
 
 Frequently, individuals will act in different roles at different times, or multiple at once.
 
