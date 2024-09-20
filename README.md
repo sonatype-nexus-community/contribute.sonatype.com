@@ -39,7 +39,7 @@ Once you've made your working copy of the site repo, from the repo root folder, 
 hugo server
 ```
 
-###Running a container locally
+### Running a container locally
 
 You can run docsy-example inside a [Docker](https://docs.docker.com/)
 container, the container runs with a volume bound to the `docsy-example`
