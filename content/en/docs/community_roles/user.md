@@ -8,4 +8,6 @@ A Project User engages with the project primarily by utilizing its features, fol
 
 Feedback may be provided by users through the form of GitHub _Issues_ or _Discussions_, depending on the preference of the project.
 
+This role does not require any permissions on the GitHub Project.
+
 **Next level:** [Project Contributor](./contributor.md)
