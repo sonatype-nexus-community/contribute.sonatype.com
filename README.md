@@ -24,7 +24,7 @@ This project is based from [Docsy for Hugo](https://www.docsy.dev/docs/get-start
 
 You'll need the following tools installed locally for development:
 - [Hugo Extended](https://gohugo.io) (>=0.128.0)
-- NPM
+- NPM 
 
 You can find out more about how to install Hugo for your environment in our
 [Getting started](https://www.docsy.dev/docs/getting-started/#prerequisites-and-installation) guide.

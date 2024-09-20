@@ -15,7 +15,7 @@ Please ensure they meet these guidelines:
 3. Has appropriate test coverage for the Pull Requests purpose (if you add or modify functionality, make sure you add tests for this!)
 4. Meet the Projects Code Style Convention and Contribution Guidelines (see `CONTRIBUTING.md` in the specific Project)
 
-If you've not signed our latest Contributor License Agreement (CLA), you'll be prompted on the Pull Request by our [CLA Bot - PaulBotsco](https://github.com/sonatype-nexus-community/the-cla).
+If you haven't yet, please review the requirements for [contributors](../community_roles/contributor.md).
 
 {{< alert color="warning" >}}Contributions that don't meet the above requirements unfortunately cannot be accepted.{{< /alert >}}
 

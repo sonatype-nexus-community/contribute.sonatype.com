@@ -8,12 +8,12 @@ weight: 20
 
 You can share your idea for a new Project by starting a [Discussion here](https://github.com/orgs/sonatype-nexus-community/discussions/new?category=project-proposal).
 
-{{< alert title="Note" >}}Only Organizational Owners can execute the below procedure to create new Project within the Sonatype Open Source Community.{{< /alert >}}
+[Organization Admins](../community_roles/admin.md) can execute the below procedure to create new Project within the Sonatype Open Source Community.
 
 ## Prerequisites
 
 - Ensure you have defined a clear purpose for the new project
-- To be a maintanier or owner of a project, you need to have previously contributed to another Sonatype Open Source Project
+- [Maintaniers](../community_roles/maintainer.md) of the project must have previously contributed to another Sonatype Open Source Project
 
 {{< alert title="Info" >}}
 Having contributed previously means you'll have signed our CLA and understand our Community workflows.
