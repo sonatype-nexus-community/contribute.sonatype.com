@@ -18,3 +18,14 @@ Please ensure they meet these guidelines:
 If you haven't yet, please review the requirements for [contributors](../community_roles/contributor.md).
 
 {{< alert color="warning" >}}Contributions that don't meet the above requirements unfortunately cannot be accepted.{{< /alert >}}
+
+## Contribution Requirements
+
+### Signed Commits
+
+In order to help verify the authenticity of contributed code, we ask that your [commits be signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits). 
+  All commits must be signed off to show that you agree to publish your changes under the current terms and licenses of the project.
+  
+  Here are some notes we found helpful in configuring a local environment to automatically sign git commits:
+    - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
+    - [Telling Git about your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-gpg-key)
