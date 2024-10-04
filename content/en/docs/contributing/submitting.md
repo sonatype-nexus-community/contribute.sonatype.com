@@ -29,7 +29,7 @@ Here are some notes we found helpful in configuring a local environment to autom
   - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
   - [Telling Git about your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-gpg-key)
 
-If you forgot to sign your commits before pushing them, you can retrospectively sign all commits on your current branch by running:
+If you forgot to sign your commits before pushing them, you can retroactively sign all commits on your current branch by running:
 ```
 git rebase --root -S --committer-date-is-author-date
 ```
