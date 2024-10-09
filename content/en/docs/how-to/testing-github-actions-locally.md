@@ -21,6 +21,29 @@ Simply run:
 ```bash
 act
 ```
+### Rancher Desktop on Mac
+
+If you are using Rancher Desktop on Mac, you may see errors like this:
+
+```bash
+%  act -j build
+INFO[0000] Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock' 
+[Continuous Integration/build] 🚀  Start image=ghcr.io/catthehacker/ubuntu:act-latest
+[Continuous Integration/build]   🐳  docker pull image=ghcr.io/catthehacker/ubuntu:act-latest platform= username= forcePull=true
+Error: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+```
+You can print out your Docker contexts with the following command:
+```bash
+% docker context ls
+NAME                DESCRIPTION                               DOCKER ENDPOINT                         ERROR
+default             Current DOCKER_HOST based configuration   unix:///var/run/docker.sock             
+rancher-desktop *   Rancher Desktop moby context              unix:///Users/bhamail/.rd/docker.sock   
+```
+You can set the DOCKER_HOST environment variable as shown below which will allow `act` to use the correct Docker context:
+```bash
+export DOCKER_HOST=$(docker context inspect | jq -r '.[0].Endpoints.docker.Host')
+```
+See: [slight modification that helps for rancher desktop](https://github.com/nektos/act/issues/1051#issuecomment-1732542268)
 
 ### Apple Silcon
 
