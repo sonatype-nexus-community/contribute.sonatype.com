@@ -10,6 +10,7 @@
         "repository": "auditjs",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         },
         "tags": [
@@ -28,6 +29,7 @@
         "repository": "bach",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
         },
         "tags": [
@@ -46,6 +48,7 @@
         "repository": "chelsea",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         },
         "tags": [
@@ -63,6 +66,7 @@
         "repository": "cheque",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
         },
         "tags": [
@@ -80,6 +84,7 @@
         "repository": "jake",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         },
         "tags": [
@@ -99,6 +104,7 @@
         "repository": "nancy",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         },
         "tags": [
@@ -116,6 +122,7 @@
         "repository": "oysteR",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
         },
         "tags": [
@@ -134,6 +141,7 @@
         "repository": "cargo-pants",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
         },
         "tags": [
@@ -152,6 +160,7 @@
         "repository": "scan-gradle-plugin",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         },
         "tags": [
@@ -170,12 +179,13 @@
         "repository": "ahab",
         "works_with": {
             "ossindex": true,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         }
     },
     {
         "name": "The CLA Bot",
-        "image": "",
+        "image": "theeecla.png",
         "description": "Also known as Paul Botsco - this is our CLA Bot.",
         "active": true,
         "flagship": false,
@@ -184,6 +194,7 @@
         "repository": "the-cla",
         "works_with": {
             "ossindex": false,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
         },
         "tags": [
@@ -194,18 +205,39 @@
         "name": "Sonatype Lifecycle GitHub Action",
         "image": "github-mark.png",
         "description": "GitHub Action for invoking Sonatype Lifecycle scans.",
-        "active": true,
+        "active": false,
         "flagship": false,
         "graduated": true,
         "graduated_link": "https://help.sonatype.com/en/sonatype-github-actions.html",
         "repository": "iq-github-action",
         "works_with": {
             "ossindex": false,
+            "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
         },
         "tags": [
             "ci",
             "github"
+        ]
+    },
+    {
+        "name": "Google Cloud Storage Blobstore",
+        "image": "github-mark.png",
+        "description": "Sonatype Nexus Repository Manager Blobstore backed by Google Cloud Storage.",
+        "active": false,
+        "flagship": false,
+        "graduated": true,
+        "graduated_link": "https://help.sonatype.com/en/configuring-blob-stores.html#google-cloud-blob-store",
+        "repository": "nexus-blobstore-google-cloud",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_nexus_repository": true,
+            "sonatype_lifecycle": false
+        },
+        "tags": [
+            "nexus",
+            "repository",
+            "blobstore"
         ]
     }
 ]
