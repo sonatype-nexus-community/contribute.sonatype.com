@@ -33,4 +33,4 @@ Any open issues should have the graduation notice shared.
 
 ## Graduating
 
-Once the preparation steps are executed, the project can be marked as archived in GitHub.
+Once the preparation steps are executed, the project should be marked as archived in GitHub.
