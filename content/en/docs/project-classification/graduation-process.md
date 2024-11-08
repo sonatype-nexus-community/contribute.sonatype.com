@@ -7,6 +7,12 @@ For some of our Community Projects, there comes a time where Sonatype officially
 
 ## Graduation Preparation
 
+### Project Graduation Proposal
+
+For the sake of historical context and community insight, a GitHub Issue should be created to explain the reasoning and expectations for graduation. This is benefitial even in cases where community engagement is low.
+
+[Look here](https://github.com/sonatype-nexus-community/nexus-blobstore-google-cloud/issues/132) to see a great real-world example!
+
 ### Project Graduation Notice
 
 The Community Project should have it's `README` on it's main branch updated to contain an appropriate *Graduation Notice*. An example might be:
