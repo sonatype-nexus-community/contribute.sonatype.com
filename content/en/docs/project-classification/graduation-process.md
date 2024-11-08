@@ -29,7 +29,7 @@ The projects [Custom Properties](/docs/project-classification/#custom-properties
 
 ### Open Issues
 
-Any open issues should have the graduation notice shared.
+Any open issues should be closed with a notice of the graduation.
 
 ## Graduating
 
