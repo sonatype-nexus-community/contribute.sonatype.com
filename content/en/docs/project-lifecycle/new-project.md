@@ -17,7 +17,7 @@ You can share your idea for a new Project by starting a [Discussion here](https:
 - Ensure you have defined a clear purpose for the new project
 - [Maintaniers](../community_roles/maintainer.md) of the project must have previously contributed to another Sonatype Open Source Project
 
-{{< alert title="Info" >}}
+{{< alert title="Why?" >}}
 Having contributed previously means you'll have signed our CLA and understand our Community workflows.
 {{< /alert >}}
 
@@ -26,9 +26,11 @@ Having contributed previously means you'll have signed our CLA and understand ou
 - Create a new GitHub Repository in the [Sonatype Community GitHub Organization](https://github.com/organizations/sonatype-nexus-community/repositories/new) using the [Community Project Template](https://github.com/sonatype-nexus-community/community-project-template) as the template repository
 - See our [GitHub Repository Configuration Standards]({{< ref "/docs/standards/github-repository" >}}).
 
-> [!NOTE]
-> This will cause a number of default files to be placed into your new repository.
-> It will also automatically inherit a number of Organization defined files that you do not need to redefine in your project.
+
+{{< alert title="Heads up!" >}}
+This will cause a number of default files to be placed into your new repository.
+It will also automatically inherit a number of Organization defined files that you do not need to redefine in your project.
+{{< /alert >}}
 
 ## External Project Contributions
 
