@@ -131,7 +131,7 @@
         ]
     },
     {
-        "name": "Pants",
+        "name": "Cargo Pants",
         "image": "pants.png",
         "description": "Cargo subcommand provides a project bill of materials and identifies vulnerabilities.",
         "active": true,
@@ -142,7 +142,7 @@
         "works_with": {
             "ossindex": true,
             "sonatype_nexus_repository": false,
-            "sonatype_lifecycle": false
+            "sonatype_lifecycle": true
         },
         "tags": [
             "rust",
