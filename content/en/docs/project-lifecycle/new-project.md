@@ -24,7 +24,7 @@ Having contributed previously means you'll have signed our CLA and understand ou
 ### Creating the Project
 
 - Create a new GitHub Repository in the [Sonatype Community GitHub Organization](https://github.com/organizations/sonatype-nexus-community/repositories/new) using the [Community Project Template](https://github.com/sonatype-nexus-community/community-project-template) as the template repository
-- See our [GitHub Repository Configuration Standards]({{< ref "/docs/standards/github-repository" >}}).
+- See our [GitHub Repository Configuration Standards]({{< ref "/docs/standards/github-repository" >}})
 
 
 {{< alert title="Heads up!" >}}
