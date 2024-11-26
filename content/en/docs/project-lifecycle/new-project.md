@@ -40,7 +40,7 @@ External contributors may propose an existing repository for migration into the 
 
 - The external contributor should initiate a [Project Proposal Discussion](https://github.com/orgs/sonatype-nexus-community/discussions/new?category=project-proposal).
 - Include the following details in the discussion:
-  - Repository URL.
+  - Public Repository URL
   - A summary of the project’s purpose and goals.
   - Any existing contributors who intend to transition as maintainers.
 
