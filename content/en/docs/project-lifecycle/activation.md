@@ -17,7 +17,7 @@ Assess the project's relevance, dependencies, and community interest. This inclu
 - Review alignment with current Community goals, as applicable
 - Confirm the project’s compliance with Community [Project Standards](https://contribute.sonatype.com/docs/standards/)
 
-### 2. Assign a Maintainer
+### 2. Assign Maintainer(s)
 
 Ensure a maintainer is identified to oversee the project and handle ongoing contributions. This step is crucial for maintaining quality and responsiveness.
 
