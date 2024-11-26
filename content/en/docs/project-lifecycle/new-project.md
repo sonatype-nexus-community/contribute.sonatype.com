@@ -42,7 +42,7 @@ External contributors may propose an existing repository for migration into the 
 - Include the following details in the discussion:
   - Public Repository URL
   - A summary of the project’s purpose and goals
-  - Any existing contributors who intend to transition as maintainers.
+  - Any existing contributors who intend to transition as maintainers
 
 ### 2. Initial Review
 
