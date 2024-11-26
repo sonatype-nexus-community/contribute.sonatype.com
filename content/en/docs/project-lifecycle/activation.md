@@ -19,7 +19,7 @@ Assess the project's relevance, dependencies, and community interest. This inclu
 
 ### 2. Assign Maintainer(s)
 
-Ensure at least one maintainer is identified to oversee the project and handle ongoing contributions. This step is crucial for maintaining quality and responsiveness.
+Ensure at least one [maintainer](https://contribute.sonatype.com/docs/community_roles/maintainer/) is identified to oversee the project and handle ongoing contributions. This step is crucial for maintaining quality and responsiveness.
 
 Maintainers MUST have previously contributed to another Sonatype Open Source Project. This ensures they are familiar with our Community workflows and have signed our CLA.
 
