@@ -23,7 +23,7 @@ Ensure at least one maintainer is identified to oversee the project and handle o
 
 Maintainers MUST have previously contributed to another Sonatype Open Source Project. This ensures they are familiar with our Community workflows and have signed our CLA.
 
-Assigning the initial maintainer for a project requires unanimous approval of the [Community Admins](../community_roles/admin.md). 
+Assigning the initial maintainers for a project requires unanimous approval of the [Community Admins](../community_roles/admin.md). 
 
 {{< alert title="Bring your friends" >}}
 Adding additional maintainers may be added at this stage OR a later date with unanimous approval from the existing maintainers and support from at least one Community Admin.
