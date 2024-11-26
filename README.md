@@ -11,7 +11,7 @@
 ---
 
 This repository contains the source for our Sonatype Open Source Community
-Handbook - the published version can be viewed
+Handbook. The published version can be viewed
 [here](https://sonatype-nexus-community.github.io/contribute.sonatype.com/).
 
 This project is based from
