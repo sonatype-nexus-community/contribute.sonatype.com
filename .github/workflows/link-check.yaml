@@ -11,6 +11,7 @@ on:
 
 jobs:
   link-check:
+    name: Check GitHub repo links at ${{github.repository}}
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -26,3 +27,20 @@ jobs:
           fi
       - name: Run muffet filter wrapper
         run: ./.muffet-filter/mfw --muffet-arg=--one-page-only --muffet-arg=-f https://github.com/sonatype-nexus-community/contribute.sonatype.com
+  link-check-site:
+    name: Check published web site links at https://contribute.sonatype.com/
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify muffet filter wrapper is found
+        run: |
+          WRAPPER_FILENAME="mfw"
+          WRAPPER="./.muffet-filter/$WRAPPER_FILENAME"  
+          if test -f "$WRAPPER"; then
+            echo "using wrapper $WRAPPER"
+          else
+            PROJECT_URL="https://github.com/bhamail/muffet-filter"
+            echo "Missing muffet-filter wrapper file $WRAPPER. Download here: $PROJECT_URL" && exit 1
+          fi
+      - name: Run muffet filter wrapper
+        run: ./.muffet-filter/mfw --muffet-arg=-f https://contribute.sonatype.com/
