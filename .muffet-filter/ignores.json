@@ -1,0 +1,90 @@
+[
+  {
+    "url": "https://contribute.sonatype.com/js/ga.js",
+    "error": "404"
+  },
+  {
+    "url": "https://www.docker.com/products/docker-desktop",
+    "error": "403"
+  },
+  {
+    "url": "https://github.githubassets.com/",
+    "error": "404"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/standards/_index.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/standards/ci-tooling.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues/new?title=CI%20Tooling",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues/new?title=Submitting%20a%20Contribution",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/contributing/submitting.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/search?l=dockerfile",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/search?l=scss",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/search?l=html",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues/new?title=Project%20Classifications",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/project-classification/_index.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues/new?title=Standard%20Files",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/tree/main/content/en/docs/standards/repository-contents.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/standards/dependency-management.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues/new?title=Contributing%20to%20a%20Project",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/contributing/_index.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues/new?title=Project%20Standards",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/tree/main/content/en/docs/standards/_index.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/standards/github-repository.md",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/contribute.sonatype.com/edit/main/content/en/docs/standards/repository-contents.md",
+    "error": "429"
+  }
+]
