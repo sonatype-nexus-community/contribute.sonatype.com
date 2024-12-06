@@ -131,7 +131,7 @@
         ]
     },
     {
-        "name": "Pants",
+        "name": "Cargo Pants",
         "image": "pants.png",
         "description": "Cargo subcommand provides a project bill of materials and identifies vulnerabilities.",
         "active": true,
@@ -142,7 +142,7 @@
         "works_with": {
             "ossindex": true,
             "sonatype_nexus_repository": false,
-            "sonatype_lifecycle": false
+            "sonatype_lifecycle": true
         },
         "tags": [
             "rust",
@@ -239,7 +239,7 @@
         ]
     },
     {
-        "name": "API Clients",
+        "name": "API Clients (Repo)",
         "image": "github-mark.png",
         "description": "Generated API Clients in Go, Java and Typescript for Sonatype Nexus Repository Manager",
         "active": true,
@@ -260,7 +260,7 @@
         ]
     },
     {
-        "name": "API Clients",
+        "name": "API Clients (IQ)",
         "image": "github-mark.png",
         "description": "Generated API Clients in Go, Python and Typescript for Sonatype IQ Server Manager",
         "active": true,
