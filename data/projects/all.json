@@ -282,5 +282,46 @@
             "api",
             "client"
         ]
+    },
+    {
+        "name": "Container (IQ)",
+        "image": "docker-mark-blue.png",
+        "description": "Container Image built for ARM for Sonatype IQ Server",
+        "active": false,
+        "flagship": false,
+        "graduated": true,
+        "repository": "docker-nexus-iq-server",
+        "graduated_link": "https://hub.docker.com/r/sonatype/nexus-iq-server",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_nexus_repository": false,
+            "sonatype_developer": true,
+            "sonatype_firewall": true,
+            "sonatype_lifecycle": true,
+            "sonatype_sbom_manager": true
+        },
+        "tags": [
+            "arm"
+        ]
+    },
+    {
+        "name": "Container (Repo)",
+        "image": "docker-mark-blue.png",
+        "description": "Container Image built for ARM for Sonatype Nexus Repository Manager",
+        "active": true,
+        "flagship": false,
+        "graduated": false,
+        "repository": "docker-nexus3",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_nexus_repository": true,
+            "sonatype_developer": false,
+            "sonatype_firewall": false,
+            "sonatype_lifecycle": false,
+            "sonatype_sbom_manager": false
+        },
+        "tags": [
+            "arm"
+        ]
     }
 ]
