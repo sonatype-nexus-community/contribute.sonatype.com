@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://contribute.sonatype.com/js/ga.js",
+    "error": "404"
+  },
+  {
+    "url": "https://contribute.sonatype.com/.*/#manage-consent",
+    "error": "id #manage-consent not found"
+  },
+  {
+    "url": "https://help.sonatype.com/en/configuring-blob-stores.html#google-cloud-blob-store",
+    "error": "id #google-cloud-blob-store not found"
+  }
+]

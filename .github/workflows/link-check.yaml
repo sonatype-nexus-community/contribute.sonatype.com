@@ -46,4 +46,4 @@ jobs:
           fi
       - name: Run muffet filter wrapper
 #        run: ./.muffet-filter/mfw --muffet-arg=-f https://contribute.sonatype.com/
-        run: ./.muffet-filter/mfw --muffet-arg=--one-page-only --muffet-arg=-f https://contribute.sonatype.com/
+        run: ./.muffet-filter/mfw -i .muffet-filter/ignores-site.json https://contribute.sonatype.com/
