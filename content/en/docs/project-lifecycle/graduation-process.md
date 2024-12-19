@@ -18,7 +18,7 @@ For the sake of historical context and community insight, a GitHub Issue should 
 The Community Project should have it's `README` on it's main branch updated to contain an appropriate *Graduation Notice*. An example might be:
 
 ```
-> ℹ️ As of 7th November 2024, this community project has [graduated](https://contribute.sonatype.com/docs/project-classification/) and is offered as part of Sonatype's commercial offerings - see [here](https://help.sonatype.com/en/configuring-blob-stores.html#google-cloud-blob-store) for full details.
+> ℹ️ As of 7th November 2024, this community project has [graduated](https://contribute.sonatype.com/docs/project-lifecycle/) and is offered as part of Sonatype's commercial offerings - see [here](https://help.sonatype.com/en/configuring-blob-stores.html#google-cloud-blob-store) for full details.
 >
 > 🚧 This community project will receive no further updates or maintenance.
 ```
@@ -31,7 +31,7 @@ Any existing CI/CD configuration should be removed and projects deprovisioned fr
 
 ### Project Properties
 
-The projects [Custom Properties](/docs/project-classification/#custom-properties) should be updated to reflect the Graduated status.
+The projects [Custom Properties](/docs/project-lifecycle/#custom-properties) should be updated to reflect the Graduated status.
 
 ### Open Issues
 
