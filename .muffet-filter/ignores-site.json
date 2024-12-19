@@ -4,11 +4,19 @@
     "error": "404"
   },
   {
-    "url": "https://contribute.sonatype.com/.*/#manage-consent",
+    "url": "https://contribute.sonatype.com.*/#manage-consent",
     "error": "id #manage-consent not found"
   },
   {
     "url": "https://help.sonatype.com/en/configuring-blob-stores.html#google-cloud-blob-store",
     "error": "id #google-cloud-blob-store not found"
+  },
+  {
+    "url": "https://github.com/sonatype-nexus-community/.*",
+    "error": "429"
+  },
+  {
+    "url": "https://github.com/nektos/act",
+    "error": "429"
   }
 ]
