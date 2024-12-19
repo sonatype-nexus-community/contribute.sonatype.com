@@ -28,6 +28,7 @@ jobs:
       - name: Run muffet filter wrapper
 #        run: ./.muffet-filter/mfw --muffet-arg=--verbose --muffet-arg=--accepted-status-codes='200..300,429' --muffet-arg=-f https://github.com/sonatype-nexus-community/contribute.sonatype.com
 #        run: ./.muffet-filter/mfw --muffet-arg=--verbose --muffet-arg=--rate-limit=10 --muffet-arg=--accepted-status-codes='200..300,429' --muffet-arg=-f https://github.com/sonatype-nexus-community/contribute.sonatype.com
+#        TODO Figure out show to remove --one-page-only without swamping the network
         run: ./.muffet-filter/mfw --muffet-arg=--one-page-only --muffet-arg=-f https://github.com/sonatype-nexus-community/contribute.sonatype.com
   link-check-site:
     name: Check published web site links at https://contribute.sonatype.com/
