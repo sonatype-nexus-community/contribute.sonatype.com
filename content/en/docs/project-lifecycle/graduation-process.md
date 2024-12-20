@@ -31,7 +31,7 @@ Any existing CI/CD configuration should be removed and projects deprovisioned fr
 
 ### Project Properties
 
-The projects [Custom Properties](/docs/project-lifecycle/#custom-properties) should be updated to reflect the Graduated status.
+The project's [Custom Properties]({{< ref "/docs/project-lifecycle/#custom-properties" >}}) should be updated to reflect the Graduated status.
 
 ### Open Issues
 
