@@ -26,7 +26,7 @@ Maintainers MUST have previously contributed to another Sonatype Open Source Pro
 Assigning the initial maintainers for a project requires unanimous approval of the [Community Admins](../community_roles/admin.md). 
 
 {{< alert title="Bring your friends" >}}
-Adding additional maintainers may be added at this stage OR a later date with unanimous approval from the existing maintainers and support from at least one Community Admin.
+Additional maintainers may be added at this stage OR a later date with unanimous approval from the existing maintainers and support from at least one Community Admin.
 {{< /alert >}}
 
 ### 3. Update the Custom Property
