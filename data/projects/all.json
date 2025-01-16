@@ -323,5 +323,25 @@
         "tags": [
             "arm"
         ]
+    },
+    {
+        "name": "Nexus CasC Plugin",
+        "image": "sonatype-repository.png",
+        "description": "Nexus CasC is a configuration as code plugin for Sonatype Nexus Repository Manager 3",
+        "active": true,
+        "flagship": false,
+        "graduated": false,
+        "repository": "nexus-casc-plugin",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_nexus_repository": true,
+            "sonatype_developer": false,
+            "sonatype_firewall": false,
+            "sonatype_lifecycle": false,
+            "sonatype_sbom_manager": false
+        },
+        "tags": [
+            "java"
+        ]
     }
 ]
