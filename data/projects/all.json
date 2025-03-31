@@ -308,10 +308,11 @@
         "name": "Container (Repo)",
         "image": "docker-mark-blue.png",
         "description": "Container Image built for ARM for Sonatype Nexus Repository Manager",
-        "active": true,
+        "active": false,
         "flagship": false,
-        "graduated": false,
+        "graduated": true,
         "repository": "docker-nexus3",
+        "graduated_link": "https://hub.docker.com/r/sonatype/nexus3",
         "works_with": {
             "ossindex": false,
             "sonatype_nexus_repository": true,
