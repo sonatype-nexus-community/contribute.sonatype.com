@@ -344,5 +344,45 @@
         "tags": [
             "java"
         ]
+    },
+    {
+        "name": "Terraform Provider: Repo",
+        "image": "terraform.png",
+        "description": "Terraform Provider for configuring Sonatype Nexus Repository",
+        "active": true,
+        "flagship": false,
+        "graduated": false,
+        "repository": "terraform-provider-sonatyperepo",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_nexus_repository": true,
+            "sonatype_developer": false,
+            "sonatype_firewall": false,
+            "sonatype_lifecycle": false,
+            "sonatype_sbom_manager": false
+        },
+        "tags": [
+            "terraform"
+        ]
+    },
+    {
+        "name": "Terraform Provider: IQ",
+        "image": "terraform.png",
+        "description": "Terraform Provider for configuring Sonatype IQ Server",
+        "active": true,
+        "flagship": false,
+        "graduated": false,
+        "repository": "terraform-provider-sonatypeiq",
+        "works_with": {
+            "ossindex": false,
+            "sonatype_nexus_repository": false,
+            "sonatype_developer": true,
+            "sonatype_firewall": true,
+            "sonatype_lifecycle": true,
+            "sonatype_sbom_manager": true
+        },
+        "tags": [
+            "terraform"
+        ]
     }
 ]
