@@ -31,21 +31,21 @@ Open Source Community. Here are our current illustrious leaders:
 
 {{< cardpane >}}
 
-{{< card header="**Dan Rollo**" >}}
+{{< card header="**Dan Rollo** (External Contributor)" >}}
 
 {{% imgproc dan-rollo Resize "400x400" %}}
 {{% /imgproc %}}
 
 {{< /card >}}
 
-{{< card header="**Eddie Knight**" >}}
+{{< card header="**Eddie Knight** (Sonatyper)" >}}
 
 {{% imgproc eddie-knight Resize "400x400" %}}
 {{% /imgproc %}}
 
 {{< /card >}}
 
-{{< card header="**Paul Horton**" >}}
+{{< card header="**Paul Horton** (Sonatyper)" >}}
 
 {{% imgproc paul-horton Resize "400x400" %}}
 {{% /imgproc %}}
