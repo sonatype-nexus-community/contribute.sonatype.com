@@ -1,5 +1,5 @@
 {{ $githublogo := resources.Get "images/github-mark.png" }}
-{{ $ossindexlogo := resources.Get "images/sonatype-ossindex.png" }}
+{{ $sonatypeguidelogo := resources.Get "images/sonatype-guide.png" }}
 
 {{ $nxrmlogo := resources.Get "images/sonatype-repository.png" }}
 
@@ -57,8 +57,8 @@
                     {{ end }}
                 </div>
                 <div class="col-8 text-center">
-                    {{ if .works_with.ossindex }}
-                    <a href="https://ossindex.sonatype.org/" target="_blank" title="Works with Sonatype OSS Index"><img src="{{ $ossindexlogo.RelPermalink }}" height="25" alt="Sonatype OSS Index" title="Sonatype OSS Index" /></a>
+                    {{ if .works_with.sonatype_guide }}
+                    <a href="https://guide.sonatype.com/" target="_blank" title="Works with Sonatype Guide"><img src="{{ $sonatypeguidelogo.RelPermalink }}" height="25" alt="Sonatype Guide" title="Sonatype Guide" /></a>
                     {{ end }}
 
                     {{ if .works_with.sonatype_nexus_repository }}
