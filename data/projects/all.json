@@ -9,7 +9,6 @@
         "graduated_link": null,
         "repository": "auditjs",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": true,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -29,7 +28,6 @@
         "graduated_link": null,
         "repository": "bach",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
@@ -49,7 +47,6 @@
         "graduated_link": null,
         "repository": "chelsea",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -68,7 +65,6 @@
         "graduated_link": null,
         "repository": "cheque",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
@@ -87,7 +83,6 @@
         "graduated_link": null,
         "repository": "jake",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": true,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -108,7 +103,6 @@
         "graduated_link": null,
         "repository": "nancy",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": true,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -127,7 +121,6 @@
         "graduated_link": null,
         "repository": "oysteR",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
@@ -147,7 +140,6 @@
         "graduated_link": null,
         "repository": "cargo-pants",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -167,7 +159,6 @@
         "graduated_link": null,
         "repository": "scan-gradle-plugin",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": true,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -187,7 +178,6 @@
         "graduated_link": null,
         "repository": "ahab",
         "works_with": {
-            "ossindex": true,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -203,7 +193,6 @@
         "graduated_link": null,
         "repository": "the-cla",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": false
@@ -222,7 +211,6 @@
         "graduated_link": "https://help.sonatype.com/en/sonatype-github-actions.html",
         "repository": "iq-github-action",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_lifecycle": true
@@ -242,7 +230,6 @@
         "graduated_link": "https://help.sonatype.com/en/configuring-blob-stores.html#google-cloud-blob-store",
         "repository": "nexus-blobstore-google-cloud",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": true,
             "sonatype_lifecycle": false
@@ -260,7 +247,6 @@
         "graduated": false,
         "repository": "nexus-repo-api-client",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": true,
             "sonatype_lifecycle": false
@@ -282,7 +268,6 @@
         "graduated": false,
         "repository": "nexus-iq-api-client",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_developer": true,
@@ -308,7 +293,6 @@
         "repository": "docker-nexus-iq-server",
         "graduated_link": "https://hub.docker.com/r/sonatype/nexus-iq-server",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_developer": true,
@@ -330,7 +314,6 @@
         "repository": "docker-nexus3",
         "graduated_link": "https://hub.docker.com/r/sonatype/nexus3",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": true,
             "sonatype_developer": false,
@@ -351,7 +334,6 @@
         "graduated": false,
         "repository": "nexus-casc-plugin",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": true,
             "sonatype_developer": false,
@@ -372,7 +354,6 @@
         "graduated": false,
         "repository": "terraform-provider-sonatyperepo",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": true,
             "sonatype_developer": false,
@@ -393,7 +374,6 @@
         "graduated": false,
         "repository": "terraform-provider-sonatypeiq",
         "works_with": {
-            "ossindex": false,
             "sonatype_guide": false,
             "sonatype_nexus_repository": false,
             "sonatype_developer": true,
