@@ -57,7 +57,7 @@ This is the second section
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="/docs/contributing" %}}
-  You can contribute to this Handbook via a [Pull Request](https://github.com/sonatype-nexus-community/community-handbook.sonatype.com/pulls) or read more to find out how to contriubte to existing projects
+  You can contribute to this Handbook via a [Pull Request](https://github.com/sonatype-nexus-community/community-handbook.sonatype.com/pulls) or read more to find out how to contribute to existing projects
 {{% /blocks/feature %}}
 <!-- 
 {{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!"
