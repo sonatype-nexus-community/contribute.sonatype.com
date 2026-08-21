@@ -62,6 +62,6 @@ Open Source Community. Here are our current illustrious leaders:
 
 You can contribute to this Handbook via a
 [Pull Request](https://github.com/sonatype-nexus-community/community-handbook.sonatype.com/pulls)
-or read more to find out how to contriubte to existing projects.
+or read more to find out how to contribute to existing projects.
 
 {{% /blocks/section %}}
