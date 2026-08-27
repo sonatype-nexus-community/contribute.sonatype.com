@@ -161,10 +161,10 @@
         "name": "Sherlock Trunks",
         "image": "sherlock-trunks.png",
         "description": "A Gradle plugin that scans the dependencies of a Gradle project for vulnerabilities.",
-        "active": true,
+        "active": false,
         "flagship": true,
-        "graduated": false,
-        "graduated_link": null,
+        "graduated": true,
+        "graduated_link": "https://help.sonatype.com/en/sonatype-integrations.html",
         "repository": "scan-gradle-plugin",
         "works_with": {
             "ossindex": true,
