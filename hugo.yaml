@@ -92,6 +92,14 @@ outputs:
   section: [HTML, print, RSS]
 
 params:
+  docsy:
+    plugins:
+      mermaid:
+        # Loaded from a CDN, so the version is pinned explicitly.
+        version: 11.17.2
+        options: |
+          { "theme": "neutral" }
+
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
     taxonomyCloud: [] #[tags, categories]

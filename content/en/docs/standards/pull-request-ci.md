@@ -64,17 +64,30 @@ These principles drive every decision below. When a Project's situation is not c
 
 A contributor's Pull Request should show a result for Tier 1 and Tier 2 within minutes of opening. Tier 3 shows as *waiting for maintainer approval* until a maintainer has reviewed the change.
 
-```text
- Fork PR opened / updated
-          |
-          +--> Tier 1  (untrusted code, NO secrets) ---------> build, lint, tests
-          |         |
-          |         +--> prepares scan input (data only)
-          |                     |
-          +--> Tier 2  (trusted code, secrets) <-- reads input as DATA, never executes it
-          |
-          +--> Tier 3  (trusted code, secrets) <-- only after maintainer approves a specific commit
+```mermaid
+flowchart LR
+    PR([Fork PR opened or updated])
+
+    subgraph U["UNTRUSTED: runs PR code, has NO secrets"]
+        T1["Tier 1<br/>build, lint, tests"]
+        PREP["Prepare Lifecycle input<br/>(native, per ecosystem)"]
+    end
+
+    subgraph T["TRUSTED: runs default-branch code, has secrets"]
+        T2["Tier 2<br/>Lifecycle evaluation"]
+        T3["Tier 3<br/>licensed integration tests"]
+    end
+
+    M{{"Maintainer approves<br/>a specific commit"}}
+
+    PR --> T1
+    T1 --> PREP
+    PREP -. "artifact: DATA only,<br/>never executed" .-> T2
+    PR --> M
+    M --> T3
 ```
+
+The dotted line is the only thing that crosses from the untrusted side to the trusted side, and it carries data that is checked but never run.
 
 ## Tier 1: Open checks (no secrets)
 
@@ -131,6 +144,26 @@ We do not require, or want, the Pull Request to be converted into an intermediat
 {{% alert color="info" %}}
 The exact artifact contents differ by ecosystem and will be defined in per-ecosystem addenda to this page after review. See [Open questions](#open-questions-for-review).
 {{% /alert %}}
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as Contributor
+    participant U as Tier 1 workflow<br/>(pull_request, no secrets)
+    participant A as Artifact store
+    participant P as Tier 2 workflow<br/>(workflow_run, default branch, secrets)
+    participant L as Sonatype Lifecycle
+
+    C->>U: Open or update PR
+    U->>U: Build and run native prepare step
+    U->>A: Upload scan input
+    U-->>P: Completion event (PR number and SHA)
+    P->>A: Download as data
+    P->>P: Validate name, size, layout
+    P->>L: Submit for evaluation (stage: build)
+    L-->>P: Policy result
+    P-->>C: Check run on the PR
+```
 
 ### Rules for the privileged phase
 
