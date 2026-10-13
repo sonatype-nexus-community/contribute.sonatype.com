@@ -45,7 +45,7 @@ Binary inputs are large. Allow for that in the artifact limits (see [Reference W
 
 Terraform providers are written in Go, so their Lifecycle scan is the Go guide.
 
-Not yet covered: Dart and Flutter, Swift, Objective-C, Conda, RPM, and Hugging Face. Sonatype supports these, and we will add guides when a Project needs one. Until then, follow the [Sonatype analysis documentation](https://help.sonatype.com/en/analysis.html) for what the scanner reads, and the pattern in the [Reference Workflows]({{% relref "../reference-workflows" %}}).
+Not yet covered: Dart and Flutter, Swift, Objective-C, Conda, RPM, and Hugging Face. Sonatype supports these. If your Project needs one of them, or uses a tool or ecosystem not listed at all, see [Your tool or ecosystem is not covered]({{% relref ".." %}}#your-tool-or-ecosystem-is-not-covered).
 
 ## Adding a guide
 

@@ -1,7 +1,7 @@
 ---
 title: Python
 description: Preparing the Lifecycle scan input for Python projects using pip or Poetry.
-weight: 40
+weight: 80
 ---
 
 {{% alert color="warning" %}}

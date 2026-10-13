@@ -1,7 +1,7 @@
 ---
 title: Docker
 description: Preparing the Lifecycle scan input for container images.
-weight: 100
+weight: 30
 ---
 
 {{% alert color="warning" %}}

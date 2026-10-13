@@ -1,7 +1,7 @@
 ---
 title: .NET
 description: Preparing the Lifecycle scan input for NuGet projects.
-weight: 45
+weight: 10
 ---
 
 {{% alert color="warning" %}}

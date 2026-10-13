@@ -170,7 +170,7 @@ jobs:
           # Chosen here, from trusted values. Never read from the artifact.
           application-id: ${{ github.event.repository.name }}
           scan-targets: ${{ vars.LIFECYCLE_SCAN_TARGETS || 'scan-input' }}
-          stage: build
+          stage: develop # Pull Requests use the develop stage, see the standard
 
       - name: Report result on the pull request
         if: ${{ !cancelled() }}

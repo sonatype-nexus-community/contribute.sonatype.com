@@ -1,7 +1,7 @@
 ---
 title: C/C++
 description: Preparing the Lifecycle scan input for Conan-based C and C++ projects.
-weight: 90
+weight: 20
 ---
 
 {{% alert color="warning" %}}

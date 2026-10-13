@@ -1,7 +1,7 @@
 ---
 title: Java
 description: Preparing the Lifecycle scan input for Maven and Gradle projects.
-weight: 20
+weight: 50
 ---
 
 {{% alert color="warning" %}}
@@ -90,7 +90,7 @@ The Gradle plugin Project in this community (`scan-gradle-plugin`) is itself a G
 Mostly unchanged from the [reference workflow]({{% relref "../reference-workflows" %}}). Two adjustments:
 
 - Binary inputs are larger than lockfiles. Raise `LIFECYCLE_SCAN_MAX_BYTES` if the default of 512 MB is too small, and keep it as low as is workable.
-- Archives are unpacked by the scanner. This is the part of the design Sonatype is being asked to confirm (see [the remaining exposure]({{% relref ".." %}}#the-remaining-exposure)).
+- Archives are unpacked by the scanner. This is the part of the design that is still an open question (see [the remaining exposure]({{% relref ".." %}}#the-remaining-exposure)).
 
 ## Trusted-ref evaluation
 

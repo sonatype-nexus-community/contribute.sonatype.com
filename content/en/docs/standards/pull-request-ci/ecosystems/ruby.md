@@ -1,7 +1,7 @@
 ---
 title: Ruby
 description: Preparing the Lifecycle scan input for Bundler projects.
-weight: 60
+weight: 100
 ---
 
 {{% alert color="warning" %}}

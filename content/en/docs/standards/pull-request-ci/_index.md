@@ -5,7 +5,7 @@ weight: 510
 ---
 
 {{% alert color="warning" %}}
-**Status: DRAFT - for community and maintainer review.** This section defines proposed standards and boundaries. Nothing here is yet implemented, and no Project is expected to change anything until the standard is agreed. The workflow snippets are reference drafts: they have been checked for syntax, but **not yet run end to end in GitHub Actions**.
+**Status: DRAFT - for community and maintainer review.** This section defines proposed standards and boundaries. It is available for adoption as a draft (see [Adoption and ratification](#adoption-and-ratification)), but nothing here has been run in a real Project yet. The workflow snippets are reference drafts: they have been checked for syntax, but **not yet run end to end in GitHub Actions**.
 {{% /alert %}}
 
 {{% alert color="info" %}}
@@ -26,6 +26,8 @@ The use of **must** and **should** indicate whether it is a requirement or a str
 - [Workflow hygiene](#workflow-hygiene)
 - [Contributor experience](#contributor-experience)
 - [What Projects must, should and must not do](#what-projects-must-should-and-must-not-do)
+- [Adoption and ratification](#adoption-and-ratification)
+- [Your tool or ecosystem is not covered](#your-tool-or-ecosystem-is-not-covered)
 - [Decisions recorded](#decisions-recorded)
 - [Open questions for review](#open-questions-for-review)
 - [Glossary](#glossary)
@@ -167,7 +169,7 @@ sequenceDiagram
     U-->>P: workflow_run completed (run id, head SHA)
     P->>A: Download by run id, as data
     P->>P: Validate size, file count, no symlinks
-    P->>L: Evaluate (stage: build)
+    P->>L: Evaluate (stage: develop)
     L-->>P: Policy result and report URL
     P-->>C: Check run on the PR's head SHA
 ```
@@ -197,7 +199,7 @@ The evaluation workflow **must**:
 - Check the artifact before use: a size limit, a file-count limit, and no symbolic links.
 - Have no `actions/checkout` of the Pull Request's head.
 - Use credentials for a **dedicated Lifecycle account with the least privilege that can perform an evaluation**, and with no ability to read or change other applications or policies.
-- Evaluate at the **`build` stage** for Pull Requests.
+- Evaluate at the **`develop` stage** for Pull Requests, against the Project's own Lifecycle application.
 
 ### What a PR-time result means
 
@@ -209,7 +211,7 @@ The contributor controls what goes into the artifact. A hostile Pull Request cou
 
 ### The remaining exposure
 
-The trusted job runs the Sonatype CLI over files that a contributor produced, while Lifecycle credentials are present. The CLI reads files and does not run them, but it does parse them, and for binary scanning it unpacks archives. A parsing flaw or a deliberately awkward archive is therefore a theoretical route to the credentials. This is a much narrower exposure than running contributor code, and it is reduced by: a dedicated job with no checkout, the size and file-count limits above, a throwaway runner, and an evaluate-only account for a single application. It is not eliminated, and we are asking Sonatype to confirm the CLI's behaviour (see [Open questions](#open-questions-for-review)).
+The trusted job runs the Sonatype CLI over files that a contributor produced, while Lifecycle credentials are present. This standard relies on the Sonatype CLI not running build tools, package managers or project code. It does parse the files, though, and for binary scanning it unpacks archives. A parsing flaw or a deliberately awkward archive is therefore a theoretical route to the credentials. This is a much narrower exposure than running contributor code, and it is reduced by: a dedicated job with no checkout, the size and file-count limits above, a throwaway runner, and an evaluate-only account for a single application. It is not eliminated, and how the CLI bounds archive extraction is an [open question](#open-questions-for-review).
 
 ### Reporting
 
@@ -372,6 +374,26 @@ The aim is that a contributor is never confused about why a check isn't running,
 - Allow Pull Request events to trigger release or publish workflows.
 - Treat the PR-time Lifecycle result as proof that a Pull Request is safe to merge.
 
+## Adoption and ratification
+
+This standard moves through two states.
+
+- **Draft (now).** Once this page is published, the standard is available for adoption. Projects may adopt it early, and early adopters are how we find what does not work. A Project that adopts it should follow it in full, and tell us what it learned (see [Your tool or ecosystem is not covered](#your-tool-or-ecosystem-is-not-covered)).
+- **Ratified.** Once the standard is ratified it is no longer optional. Every Project **must** adopt the latest ratified version the next time it is updated, developed or released. A Project does not have to stop and retrofit on the day of ratification, but it cannot ship its next change without bringing its Pull Request CI into line.
+
+The first real-world trial is `terraform-provider-sonatyperepo`. What we learn there, including anything in these workflows that does not work as written, feeds back into this draft before it is ratified.
+
+## Your tool or ecosystem is not covered
+
+The ecosystem guides cover the ecosystems our Projects use today. If yours is not there, or your tooling does something these guides do not allow for, **engage with us** rather than working around the standard:
+
+- Ask a question or propose an approach in [GitHub Discussions](https://github.com/sonatype-nexus-community/contribute.sonatype.com/discussions).
+- Report a gap, or suggest a change to a guide, as a [GitHub Issue](https://github.com/sonatype-nexus-community/contribute.sonatype.com/issues).
+
+Please say which Project and which ecosystem or tool it concerns. We add guides as Projects need them. Sonatype Lifecycle supports more ecosystems than we have guides for, so a missing guide usually means nobody has asked yet, not that it cannot be done.
+
+While a guide is missing, the [principles](#principles) still apply: prepare the files Lifecycle reads for that ecosystem in a job with no secrets, and let a separate trusted job evaluate them as data.
+
 ## Decisions recorded
 
 These were considered during drafting. They are recorded so reviewers can see why, and challenge them with evidence.
@@ -391,18 +413,38 @@ An SBOM remains acceptable for a Project whose ecosystem Lifecycle cannot analys
 
 See [What a PR-time result means](#what-a-pr-time-result-means).
 
+### Pull Requests are evaluated at the develop stage, against the real application
+
+Pull Request evaluations go to the Project's own Lifecycle application (named after the repository), at the `develop` stage.
+
+- **One application, not a separate one for Pull Requests.** We considered a separate application to keep unreviewed Pull Requests out of a Project's results, and chose against it. Contributors then see the policy the Project actually uses, and the history stays in one place.
+- **Why `develop`.** It is the stage for early feedback. The authoritative evaluation runs on a trusted ref at the `release` stage.
+- **Consequences.** The Tier 2 account needs permission to evaluate that one application. The existing [Dependency Management]({{% relref "/docs/standards/dependency-management" %}}) page, whose Continuous Integration example uses the `build` stage, will need reconciling with this when the standard is ratified.
+
+### The Sonatype CLI does not run build tools
+
+The design relies on the Sonatype CLI only reading the files it is given: it does not run build tools, package managers or project code. That is why the Tier 2 job can run it over a contributor's files. What the CLI does do is parse those files and, for binary scans, unpack archives. See [the remaining exposure](#the-remaining-exposure).
+
+### Reusable workflows live in a central Community repository
+
+Where it is sane and safe to do so, the trusted workflow logic (the Tier 2 evaluation, the Tier 3 approval gate, and shared preparation steps) will be provided as reusable workflows in a new central Community repository. It is then hardened and audited once, and each Project calls it with a few lines.
+
+"Sane and safe" means:
+
+- Callers pin the reusable workflow to a commit SHA.
+- The central repository has tight access control, `CODEOWNERS` and required reviews.
+- Each Project's own workflow still defines its own triggers. A reusable workflow does not decide when it runs.
+
+The [reference workflows]({{% relref "reference-workflows" %}}) then become the pattern for the callers. The repository's name and home are still to be decided.
+
 ## Open questions for review
 
-We want feedback from maintainers, contributors and Sonatype on these before implementation starts.
+We want feedback from maintainers, contributors and Sonatype on these before the standard is ratified.
 
-1. **CLI behaviour on untrusted files.** Can Sonatype confirm that the Sonatype CLI, when scanning a directory of files, never runs a build tool, package manager or project code, and how it bounds archive extraction? The answer sets how much the [remaining exposure](#the-remaining-exposure) matters.
-2. **Gaps in the ecosystem guides.** The guides cover what Sonatype's published documentation supports. Where it was silent (for example the Gradle equivalent of Maven's dependency copy, or the exact R export format) the guides say so. Which of these can Sonatype fill in?
-3. **Lifecycle application for fork PRs.** Should PR-time evaluations go to each Project's own Lifecycle application, or to a separate "community pull requests" application per Project, so that unreviewed PRs do not appear in a Project's real results?
-4. **Ephemeral protected resources.** Which products and hosting (container, VM, cloud) are practical for per-run provisioning, and who funds and operates it?
-5. **Reusable workflows.** Should the trusted pieces (approval gate, evaluation workflow, provisioning) live in a central repository as reusable workflows, so they are hardened and audited once?
-6. **Approval mechanism.** Label, comment command or protected Environment: should the standard pick one, or allow all three?
-7. **Intermediate branches.** Is there enough value to allow them, or should we only permit the gated, in-place approach?
-8. **Migration.** How and when will existing Projects be asked to adopt this, given varied release processes?
+1. **Archive extraction.** The Sonatype CLI does not run build tools (see [decisions](#the-sonatype-cli-does-not-run-build-tools)), but binary scans unpack archives. How does the CLI bound extraction (total size, depth, file count, path traversal)? The answer sets how much [the remaining exposure](#the-remaining-exposure) matters, most of all for Docker images and large binary inputs.
+2. **Protected resources created for each test run.** [Part B of Tier 3](#part-b-dont-give-the-protected-resource-to-the-test-code) describes creating a throwaway copy of the protected resource for every test run, so that the contributor's test code never sees a real credential. It is the safest design, but someone has to build and run the machinery that creates and destroys those copies. For which Projects is that worth doing, and where would it run? Until it is done, Projects use the interim approach described in Part B.
+3. **Approval mechanism.** Label, comment command or protected Environment: should the standard pick one, or allow all three?
+4. **Intermediate branches.** Is there enough value to allow them, or should we only permit the gated, in-place approach?
 
 ## Glossary
 

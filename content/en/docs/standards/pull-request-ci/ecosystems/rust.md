@@ -1,7 +1,7 @@
 ---
 title: Rust
 description: Preparing the Lifecycle scan input for Cargo projects.
-weight: 50
+weight: 110
 ---
 
 {{% alert color="warning" %}}

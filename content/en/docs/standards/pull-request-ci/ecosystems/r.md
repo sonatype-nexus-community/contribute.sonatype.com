@@ -1,7 +1,7 @@
 ---
 title: R
 description: Preparing the Lifecycle scan input for R (CRAN) packages.
-weight: 80
+weight: 90
 ---
 
 {{% alert color="warning" %}}

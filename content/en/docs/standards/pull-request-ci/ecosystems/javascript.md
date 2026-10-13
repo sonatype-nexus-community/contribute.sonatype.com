@@ -1,7 +1,7 @@
 ---
 title: JavaScript
 description: Preparing the Lifecycle scan input for npm and Yarn projects.
-weight: 30
+weight: 60
 ---
 
 {{% alert color="warning" %}}

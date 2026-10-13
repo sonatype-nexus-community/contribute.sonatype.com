@@ -1,7 +1,7 @@
 ---
 title: Go
 description: Preparing the Lifecycle scan input for Go modules, including Terraform providers.
-weight: 10
+weight: 40
 ---
 
 {{% alert color="warning" %}}
