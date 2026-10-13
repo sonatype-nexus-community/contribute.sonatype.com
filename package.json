@@ -34,9 +34,11 @@
     "update:hugo": "npm install --save-dev --save-exact hugo-extended@latest"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "7.3.1",
     "autoprefixer": "^10.4.14",
+    "bootstrap": "5.3.8",
     "cross-env": "^7.0.3",
-    "hugo-extended": "0.127.0",
+    "hugo-extended": "0.167.0",
     "postcss-cli": "^11.0.0"
   },
   "private": true,

@@ -39,13 +39,16 @@ permalinks:
 # Image processing configuration.
 imaging:
   resampleFilter: CatmullRom
-  quality: 75
+  jpeg:
+    quality: 75
+  webp:
+    quality: 75
   anchor: smart
 
 # Language configuration
 languages:
   en:
-    languageName: English
+    label: English
     title: Sonatype Open Source Community Handbook
     params:
       description: Engaging with Sonatype Community Projects
@@ -214,9 +217,9 @@ module:
   # workspace: docsy.work
   hugoVersion:
     extended: true
-    min: 0.110.0
+    min: 0.158.0
   imports:
-    - path: github.com/google/docsy
+    - path: github.com/docsy/docsy/theme
       disable: false
 
 services:
