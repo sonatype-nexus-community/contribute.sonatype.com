@@ -2,11 +2,11 @@
 
 {{ $slug := .Page.Slug }}
 
-{{ $allProjects := .Site.Data.projects.all }}
-{{ $allActiveProjects := where .Site.Data.projects.all "active" true }}
-{{ $allArchivedProjects := where .Site.Data.projects.all "active" false }}
-{{ $allFlagshipProjects := where .Site.Data.projects.all "flagship" true }}
-{{ $allGraduatedProjects := where .Site.Data.projects.all "graduated" true }}
+{{ $allProjects := hugo.Data.projects.all }}
+{{ $allActiveProjects := where hugo.Data.projects.all "active" true }}
+{{ $allArchivedProjects := where hugo.Data.projects.all "active" false }}
+{{ $allFlagshipProjects := where hugo.Data.projects.all "flagship" true }}
+{{ $allGraduatedProjects := where hugo.Data.projects.all "graduated" true }}
 
 {{ if eq $slug "active" -}}
   {{ $.Scratch.Set "projects" $allActiveProjects -}}
