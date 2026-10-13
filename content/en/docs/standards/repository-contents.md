@@ -27,6 +27,18 @@ creating that are not in the Template - see
 
 Every repository **must** define who owns it.
 
+The owners **must** be the Project's own maintainers team, `@sonatype-nexus-community/[PROJECT]` (for example `@sonatype-nexus-community/the-cla`), so that the people who review changes are named by team and not by individual. See [Project Maintainer]({{< ref "/docs/community_roles/maintainer" >}}).
+
+{{% alert color="warning" %}}
+**The maintainers team is also the approval authority for Tier 3.** [Pull Request CI & Secrets](/docs/standards/pull-request-ci/#who-can-approve) lets only a person with the **Maintain** role approve licensed or otherwise protected tests, and the cleanest way to give that role is through this team. So the team must exist, must be granted **Maintain** on the repository, and must be the entry in `CODEOWNERS`. Do not list individuals in `CODEOWNERS` in place of the team, and do not rely on `@sonatype-nexus-community/community-leaders` alone: it does hold Maintain on repositories today, but it is the whole community's leadership, not the people who maintain this Project.
+{{% /alert %}}
+
+To set this up for a Project that does not have a team yet:
+
+1. Create the team `@sonatype-nexus-community/[PROJECT]` and add the Project's maintainers.
+2. Grant the team the **Maintain** role on the repository.
+3. Replace the entries in `.github/CODEOWNERS` with the team.
+
 Here are some groups you can reference if appropriate:
 
 | Group                                         | Purpose                                       |

@@ -14,6 +14,18 @@ You can check out the real world implementation for this handbook - here [for Co
 
 When implementing your scans, do reference the [official Sonatype Lifecycle documentation](https://help.sonatype.com/en/analysis.html) that relates to the langugages and ecosystems in the project.
 
+## Lifecycle stages
+
+Each kind of run evaluates at its own Lifecycle stage:
+
+| Run | Stage |
+|---|---|
+| Pull Request, or any other branch | `develop` |
+| CI / build on `main` | `build` |
+| A release | `release` |
+
+Pull Requests from forks cannot use secrets directly. See [Pull Request CI & Secrets]({{% relref "/docs/standards/pull-request-ci" %}}) (draft) for how to evaluate them safely.
+
 ## Example GitHub Action for Continuous Integration
 
 ```yaml
@@ -34,7 +46,7 @@ jobs:
                   password: ${{ secrets.SONATYPE_LIFECYCLE_PASSWORD }}
                   application-id: ${{ env.LC_APPLICATION_ID }}
                   scan-targets: '.'
-                  stage: build # <!-- Set to 'build' for the Continuous Integration
+                  stage: build # <!-- Use 'build' for CI on main; use 'develop' for Pull Requests and other branches
     ...
 ```
 

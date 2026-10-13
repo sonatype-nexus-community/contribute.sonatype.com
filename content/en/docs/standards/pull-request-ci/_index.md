@@ -235,6 +235,8 @@ The result should appear on the Pull Request as a check run, with a link to the 
 
 Tests that need a protected resource run only when a maintainer has approved the specific commit under test, or when the code is already trusted (see [Trusted refs](#trusted-refs-releases-and-tags)).
 
+There can be more than one Tier 3 workflow. A Project with a clustered or high-availability configuration that needs a protected resource, for example, runs that as another Tier 3 workflow, behind the same approval. All of them are required checks (see [Required status checks]({{% relref "/docs/standards/github-repository" %}}#required-status-checks)).
+
 A **protected resource** is anything the Project cannot let arbitrary code use freely: a commercial licence, a paid or quota-limited service, a private registry or environment, or credentials with a wide blast radius. For many of our Projects the protected resource is a licensed Sonatype installation, such as a licensed Nexus Repository or Lifecycle instance. That is an example, not a definition. A Project with no such tests does not have a Tier 3, and does not need a gate.
 
 ### Why
@@ -246,6 +248,7 @@ These are the most sensitive credentials we hold, and the tests are the code a h
 Projects must gate Tier 3 behind an explicit maintainer action, and the gate **must** meet all of these conditions:
 
 - **It is explicit.** A maintainer approves with a label or a comment command, after reading the diff (see [Who can approve](#who-can-approve) and [Approval mechanisms](#approval-mechanisms)).
+- **It has no way round.** Tier 3 workflows must not offer a manual start (`workflow_dispatch`) that takes a commit or branch, because that would let anyone with Maintain run unreviewed code with the protected resource, bypassing the check on the commit. The only ways in are an approval of one exact commit, or a push to a protected ref.
 - **It is bound to a commit.** The workflow records the approved commit SHA and runs exactly that commit. If the Pull Request is updated, approval is **revoked automatically** and a maintainer must approve again.
 - **It does not trust history.** Having a previous merged Pull Request is not grounds for automatic approval. Accounts get compromised.
 - **It may auto-approve maintainers.** Pull Requests from members of the Project's maintainer team may skip the gate, as their branches live in the main repository.
@@ -253,13 +256,13 @@ Projects must gate Tier 3 behind an explicit maintainer action, and the gate **m
 
 ### Who can approve
 
-Only a person with **Maintain** permission or higher on the repository may approve Tier 3 for a Pull Request. This is the Project's maintainer team, which is also its `CODEOWNERS` (see [Project Maintainer]({{% relref "/docs/community_roles/maintainer" %}})). Projects should give that team the Maintain role so that the two groups are the same people.
+Only a person with **Maintain** permission or higher on the repository may approve Tier 3 for a Pull Request. This is the Project's maintainers team, `@sonatype-nexus-community/[PROJECT]`, which is also its `CODEOWNERS` (see [Project Maintainer]({{% relref "/docs/community_roles/maintainer" %}}) and [Standard Files]({{% relref "/docs/standards/repository-contents" %}}#code-owners)). Each Project **must** have that team, with the Maintain role on the repository, and **must** list it in `CODEOWNERS`. Membership of the team, with no individual grant, is enough for the check below to see the Maintain role.
 
 The approval workflow **must check this itself**. GitHub lets anyone with Triage permission apply a label, so a label is not proof of authority. For the person who applied the label or wrote the comment, look up their role with the repository collaborator permission API and read `role_name`. Do not use the `permission` field, which reports Maintain as `write` and so cannot tell Maintain from Write. An approval from anyone below Maintain is ignored, and a label they applied is removed.
 
 ### Approval mechanisms
 
-A Project may use either of these, and both must meet [Who can approve](#who-can-approve) and the commit-binding rule above.
+A Project may use either of these, and both must meet [Who can approve](#who-can-approve) and the commit-binding rule above. The approval belongs to **a commit, not to a Pull Request**: it is recorded as a commit status on that exact commit, so a Pull Request that is updated has no approval for its new commit until a maintainer gives one.
 
 | Mechanism | How it works | Strength | Weakness |
 |---|---|---|---|
@@ -392,6 +395,8 @@ The aim is that a contributor is never confused about why a check isn't running,
 
 ### Must
 
+- Have a maintainers team for the Project, with the Maintain role, named in `CODEOWNERS`.
+- Require every tier the Project has as a status check before merging.
 - Run Tier 1 on every Pull Request without secrets.
 - Separate tests that need a protected resource from those that do not, in the test code itself.
 - Perform Lifecycle evaluation for fork PRs only through trusted code that treats the prepared scan input as data.
