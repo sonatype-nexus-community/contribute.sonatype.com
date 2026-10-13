@@ -247,7 +247,7 @@ Each Project must set, under `Settings -> Actions -> General`:
 
 ### CODEOWNERS
 
-Following [CODEOWNERS](../github-repository/), Projects should list the files that are most useful to an attacker and so deserve close review, including:
+Following [CODEOWNERS](../repository-contents/), Projects should list the files that are most useful to an attacker and so deserve close review, including:
 
 - `.github/` (workflows and actions)
 - Build and dependency definitions (for example `Makefile`, `pom.xml`, `build.gradle`, `package.json`, `go.mod`)
