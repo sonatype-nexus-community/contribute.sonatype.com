@@ -60,7 +60,7 @@ Unchanged from the [reference workflow]({{% relref "../reference-workflows" %}})
 
 ## Trusted-ref evaluation
 
-Generate the same file from the real checkout and scan it at `stage: release`.
+Generate the same file from the real checkout and scan it at `stage: build` on `main` and `stage: release` for a release.
 
 ## What you give up
 

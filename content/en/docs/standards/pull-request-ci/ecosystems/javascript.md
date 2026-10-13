@@ -91,7 +91,7 @@ Unchanged from the [reference workflow]({{% relref "../reference-workflows" %}})
 
 ## Trusted-ref evaluation
 
-Run `npm install --production` on the real checkout, then scan `package.json`, the lockfile and `node_modules` together, at `stage: release`.
+Run `npm install --production` on the real checkout, then scan `package.json`, the lockfile and `node_modules` together, at `stage: build` on `main` and `stage: release` for a release.
 
 ## What you give up
 

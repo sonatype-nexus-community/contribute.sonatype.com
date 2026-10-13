@@ -90,11 +90,10 @@ The Gradle plugin Project in this community (`scan-gradle-plugin`) is itself a G
 Mostly unchanged from the [reference workflow]({{% relref "../reference-workflows" %}}). Two adjustments:
 
 - Binary inputs are larger than lockfiles. Raise `LIFECYCLE_SCAN_MAX_BYTES` if the default of 512 MB is too small, and keep it as low as is workable.
-- Archives are unpacked by the scanner. This is the part of the design that is still an open question (see [the remaining exposure]({{% relref ".." %}}#the-remaining-exposure)).
 
 ## Trusted-ref evaluation
 
-Build the project, then scan the same output (`scan-targets: 'target'` or `'build/libs'`) at `stage: release`. Do not scan `.`, because the source tree is a weaker target than the deployed artifact.
+Build the project, then scan the same output (`scan-targets: 'target'` or `'build/libs'`) at `stage: build` on `main` and `stage: release` for a release. Do not scan `.`, because the source tree is a weaker target than the deployed artifact.
 
 ## What you give up
 

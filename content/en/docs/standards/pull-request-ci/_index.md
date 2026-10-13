@@ -189,6 +189,18 @@ Things that must be handled, because each is a known way for this pattern to fai
 | **The artifact belongs to another run.** | `download-artifact` cannot find it with defaults. | Pass `run-id` and `github-token` explicitly. |
 | **Branch names, titles and other event fields are attacker-controlled.** | Template injection into scripts. | Use only `head_sha` and numeric ids from the event, and pass anything else through environment variables, never inline in `run:`. |
 
+### Which Lifecycle stage to use
+
+Lifecycle policy is applied per stage, so each kind of run uses its own:
+
+| Run | Stage | Why |
+|---|---|---|
+| Pull Request, or any other branch | `develop` | Early feedback for the people changing the code |
+| CI / build on `main` | `build` | The merged code, built as the Project's pipeline builds it |
+| A release (tag push, GitHub Release or manual publish) | `release` | The code that is being shipped |
+
+The `develop` evaluation is advisory. The `build` and `release` evaluations run on [trusted refs](#trusted-refs-releases-and-tags), against reviewed code, and are the ones that enforce policy.
+
 ### Rules for the privileged phase
 
 The evaluation workflow **must**:
@@ -199,19 +211,19 @@ The evaluation workflow **must**:
 - Check the artifact before use: a size limit, a file-count limit, and no symbolic links.
 - Have no `actions/checkout` of the Pull Request's head.
 - Use credentials for a **dedicated Lifecycle account with the least privilege that can perform an evaluation**, and with no ability to read or change other applications or policies.
-- Evaluate at the **`develop` stage** for Pull Requests, against the Project's own Lifecycle application.
+- Evaluate at the **`develop` stage** for Pull Requests and other branches, against the Project's own Lifecycle application (see [Which Lifecycle stage to use](#which-lifecycle-stage-to-use)).
 
 ### What a PR-time result means
 
 The contributor controls what goes into the artifact. A hostile Pull Request could therefore leave a vulnerable dependency out of the scan input and pass. This is true of any scheme where untrusted code prepares the input. It follows that:
 
 - The **PR-time result is advisory**. It gives contributors early, accurate feedback on honest changes, and it catches most mistakes.
-- The **authoritative evaluation runs on a trusted ref** (see [Trusted refs](#trusted-refs-releases-and-tags)), against the real checkout of reviewed, merged code, at the `release` stage. That is the evaluation that enforces policy.
+- The **authoritative evaluations run on trusted refs** (see [Trusted refs](#trusted-refs-releases-and-tags)), against the real checkout of reviewed, merged code: at the `build` stage for CI on `main`, and at the `release` stage for a release. Those are the evaluations that enforce policy.
 - Maintainers reviewing a PR still look at changes to dependency manifests. That is what the `CODEOWNERS` guidance below is for.
 
 ### The remaining exposure
 
-The trusted job runs the Sonatype CLI over files that a contributor produced, while Lifecycle credentials are present. This standard relies on the Sonatype CLI not running build tools, package managers or project code. It does parse the files, though, and for binary scanning it unpacks archives. A parsing flaw or a deliberately awkward archive is therefore a theoretical route to the credentials. This is a much narrower exposure than running contributor code, and it is reduced by: a dedicated job with no checkout, the size and file-count limits above, a throwaway runner, and an evaluate-only account for a single application. It is not eliminated, and how the CLI bounds archive extraction is an [open question](#open-questions-for-review).
+The trusted job runs the Sonatype CLI over files that a contributor produced, while Lifecycle credentials are present. This standard relies on the Sonatype CLI not running build tools, package managers or project code. It does have to read and process the files it is given, so a flaw in that processing, or a deliberately awkward input, is a theoretical route to the credentials. This is a much narrower exposure than running contributor code, and it is reduced by: a dedicated job with no checkout, the size and file-count limits above, a throwaway runner, and an evaluate-only account for a single application. It is not eliminated.
 
 ### Reporting
 
@@ -233,11 +245,30 @@ These are the most sensitive credentials we hold, and the tests are the code a h
 
 Projects must gate Tier 3 behind an explicit maintainer action, and the gate **must** meet all of these conditions:
 
-- **It is explicit.** A maintainer applies a label (or equivalent, such as an approving deployment review on a protected GitHub Environment) after reading the diff.
+- **It is explicit.** A maintainer approves with a label or a comment command, after reading the diff (see [Who can approve](#who-can-approve) and [Approval mechanisms](#approval-mechanisms)).
 - **It is bound to a commit.** The workflow records the approved commit SHA and runs exactly that commit. If the Pull Request is updated, approval is **revoked automatically** and a maintainer must approve again.
 - **It does not trust history.** Having a previous merged Pull Request is not grounds for automatic approval. Accounts get compromised.
 - **It may auto-approve maintainers.** Pull Requests from members of the Project's maintainer team may skip the gate, as their branches live in the main repository.
 - **Reviewers know what to look for.** Changes to CI configuration, build files, dependency manifests (including module replacement or override directives), test helpers and scripts are the most common ways to extract secrets. Projects should list these in `CODEOWNERS` so that a maintainer is always prompted to review them. See [Repository and organization settings](#repository-and-organization-settings).
+
+### Who can approve
+
+Only a person with **Maintain** permission or higher on the repository may approve Tier 3 for a Pull Request. This is the Project's maintainer team, which is also its `CODEOWNERS` (see [Project Maintainer]({{% relref "/docs/community_roles/maintainer" %}})). Projects should give that team the Maintain role so that the two groups are the same people.
+
+The approval workflow **must check this itself**. GitHub lets anyone with Triage permission apply a label, so a label is not proof of authority. For the person who applied the label or wrote the comment, look up their role with the repository collaborator permission API and read `role_name`. Do not use the `permission` field, which reports Maintain as `write` and so cannot tell Maintain from Write. An approval from anyone below Maintain is ignored, and a label they applied is removed.
+
+### Approval mechanisms
+
+A Project may use either of these, and both must meet [Who can approve](#who-can-approve) and the commit-binding rule above.
+
+| Mechanism | How it works | Strength | Weakness |
+|---|---|---|---|
+| **Label** (for example `approved-to-test`) | A maintainer applies it. The workflow records the head commit at that moment, and removes the label whenever new commits are pushed. | Visible on the Pull Request. No typing. | The recorded commit is the one at the moment of labelling, which can differ from the one the maintainer read if the contributor pushed in between. |
+| **Comment command** (for example `/ok-to-test <short-sha>`) | A maintainer comments with the commit they reviewed. The workflow refuses if the head commit is different. | The approval names exactly what was read. Easy to audit. | The workflow has to parse the comment. |
+
+Where a Project can choose, the comment command is preferred, because the maintainer states which commit they reviewed.
+
+A Project may additionally keep the protected resource's secrets in a GitHub Environment with required reviewers. GitHub then withholds the secrets from a run until a reviewer approves it, whatever our workflow logic does. That makes it a backstop for a mistake in the approval workflow. It costs a click on every run, including re-runs, so it is optional rather than part of the standard.
 
 ### Part B: Don't give the protected resource to the test code
 
@@ -253,11 +284,21 @@ Projects that cannot yet do this may run protected tests with real secrets **aft
 - Use credentials and licences that exist only for CI, are time-limited and are rotated on a schedule.
 - Keep the protected job's permissions minimal.
 
+### How this could be realised
+
+"Don't give the protected resource to the test code" can be built in stages. A Project can stop at any stage, and should say which one it has reached.
+
+1. **Gated, with scoped secrets.** The approval gate above, with the secrets held at repository or Environment scope. This is the interim approach and needs no new infrastructure. The test code can still reach the secrets once it runs, which is why it is only acceptable behind the gate.
+2. **Hardening inside the job.** Keep the licence file out of the workspace, give it to the service rather than the tests, and remove it once the service has started. This reduces accidents. It is **not separation**: on a single runner the tests and the service run on the same machine, and the test process can normally reach the service's files and environment. Treat it as hardening.
+3. **A separate machine for the protected resource.** A trusted job creates the instance of the protected resource somewhere other than the runner that executes the tests. For example, a short-lived container or virtual machine in a cloud account the community controls. It generates credentials for that run only, and passes the test job just the address and those credentials. Whatever the tests do, the licence never reaches them. A step that always runs at the end destroys the instance, and a scheduled clean-up removes any that leak.
+
+Stage 3 needs decisions that are not technical: where the instances run, whose account and budget pays for them, and whether the licence terms allow short-lived instances. A Project that tests against many product versions needs one instance for each version in each run, so the cost grows with the size of the test matrix.
+
 ## Trusted refs, releases and tags
 
 Projects release in different ways: by merging to `main`, by pushing a version tag, by publishing a GitHub Release, or through a manual dispatch. This standard does not dictate which. It defines what makes a trigger **trusted**.
 
-A ref is trusted when only maintainers can create or change it. On a trusted ref, the code has been reviewed and merged, so the authoritative Tier 2 evaluation (at `release` stage, against the real checkout) and Tier 3 may run directly with full access to their secrets, exactly as described in [Dependency Management]({{% relref "/docs/standards/dependency-management" %}}).
+A ref is trusted when only maintainers can create or change it. On a trusted ref, the code has been reviewed and merged, so the authoritative Tier 2 evaluations (`build` stage for CI on `main`, `release` stage for a release, against the real checkout) and Tier 3 may run directly with full access to their secrets, exactly as described in [Dependency Management]({{% relref "/docs/standards/dependency-management" %}}).
 
 | Release style | Why it is trusted | Required controls |
 |---|---|---|
@@ -269,7 +310,7 @@ In all cases:
 
 - Publishing credentials (package registries, signing keys) **must** be Environment secrets with deployment rules restricted to the trusted refs. A feature branch, or an intermediate branch, must not be able to read them.
 - Release workflows **must not** be triggered by a Pull Request event.
-- Whatever the trigger, the release workflow should perform the `release`-stage Lifecycle evaluation and the full test set, including Tier 3 where the Project has one.
+- Whatever the trigger, the release workflow should perform the `release`-stage Lifecycle evaluation and the full test set, including Tier 3 where the Project has one. CI on `main` performs the `build`-stage evaluation.
 
 ## Intermediate branches
 
@@ -298,7 +339,7 @@ If a Project uses intermediate branches, it **must**:
 - Make changes to `.github/` in a mirrored commit a **blocking** reason to refuse the mirror, or make the workflow definition come from the default branch instead (for example by calling a reusable workflow at a pinned reference).
 
 {{% alert color="info" %}}
-Intermediate branches are an allowed *mechanism* for Tier 3, not a requirement. The label-gated approach described in [Part A](#part-a-the-approval-gate) usually needs fewer moving parts. Intermediate branches are most useful where the Project already has trusted `push` workflows and wants to reuse them.
+Intermediate branches are an **optional, break-glass** mechanism, not the normal route. The approval gate described in [Part A](#part-a-the-approval-gate) is the standard way to run Tier 3 for a Pull Request and needs fewer moving parts. Use an intermediate branch only when a maintainer has a specific reason, for example a Project whose existing trusted `push` workflows cannot yet be split.
 {{% /alert %}}
 
 ## Repository and organization settings
@@ -418,12 +459,12 @@ See [What a PR-time result means](#what-a-pr-time-result-means).
 Pull Request evaluations go to the Project's own Lifecycle application (named after the repository), at the `develop` stage.
 
 - **One application, not a separate one for Pull Requests.** We considered a separate application to keep unreviewed Pull Requests out of a Project's results, and chose against it. Contributors then see the policy the Project actually uses, and the history stays in one place.
-- **Why `develop`.** It is the stage for early feedback. The authoritative evaluation runs on a trusted ref at the `release` stage.
-- **Consequences.** The Tier 2 account needs permission to evaluate that one application. The existing [Dependency Management]({{% relref "/docs/standards/dependency-management" %}}) page, whose Continuous Integration example uses the `build` stage, will need reconciling with this when the standard is ratified.
+- **Why `develop`.** It is the stage for early feedback on Pull Requests and branches. CI on `main` uses `build`, and a release uses `release`.
+- **Consequences.** The Tier 2 account needs permission to evaluate that one application. The existing [Dependency Management]({{% relref "/docs/standards/dependency-management" %}}) page, whose Continuous Integration example uses the `build` stage for every run, will need updating to match when the standard is ratified.
 
 ### The Sonatype CLI does not run build tools
 
-The design relies on the Sonatype CLI only reading the files it is given: it does not run build tools, package managers or project code. That is why the Tier 2 job can run it over a contributor's files. What the CLI does do is parse those files and, for binary scans, unpack archives. See [the remaining exposure](#the-remaining-exposure).
+The design relies on the Sonatype CLI only reading the files it is given: it does not run build tools, package managers or project code. That is why the Tier 2 job can run it over a contributor's files. See [the remaining exposure](#the-remaining-exposure).
 
 ### Reusable workflows live in a central Community repository
 
@@ -441,10 +482,8 @@ The [reference workflows]({{% relref "reference-workflows" %}}) then become the 
 
 We want feedback from maintainers, contributors and Sonatype on these before the standard is ratified.
 
-1. **Archive extraction.** The Sonatype CLI does not run build tools (see [decisions](#the-sonatype-cli-does-not-run-build-tools)), but binary scans unpack archives. How does the CLI bound extraction (total size, depth, file count, path traversal)? The answer sets how much [the remaining exposure](#the-remaining-exposure) matters, most of all for Docker images and large binary inputs.
-2. **Protected resources created for each test run.** [Part B of Tier 3](#part-b-dont-give-the-protected-resource-to-the-test-code) describes creating a throwaway copy of the protected resource for every test run, so that the contributor's test code never sees a real credential. It is the safest design, but someone has to build and run the machinery that creates and destroys those copies. For which Projects is that worth doing, and where would it run? Until it is done, Projects use the interim approach described in Part B.
-3. **Approval mechanism.** Label, comment command or protected Environment: should the standard pick one, or allow all three?
-4. **Intermediate branches.** Is there enough value to allow them, or should we only permit the gated, in-place approach?
+1. **Protected resources created for each test run.** [Part B of Tier 3](#part-b-dont-give-the-protected-resource-to-the-test-code) describes creating a throwaway copy of the protected resource for every test run, so that the contributor's test code never sees a real credential. It is the safest design, but no Project has built it yet. What would create and destroy the copies, where they would run, what licence they would use, and who would pay are all undecided. [How this could be realised](#how-this-could-be-realised) sets out the stages. Until it exists, Projects use the interim approach.
+2. **Approval mechanism.** The standard allows a label or a comment command, restricted to the people named in [Who can approve](#who-can-approve), and is considering whether to also use a protected Environment. See [Approval mechanisms](#approval-mechanisms).
 
 ## Glossary
 

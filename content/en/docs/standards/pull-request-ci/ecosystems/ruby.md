@@ -68,7 +68,7 @@ Unchanged from the [reference workflow]({{% relref "../reference-workflows" %}})
 
 ## Trusted-ref evaluation
 
-Scan the real `Gemfile.lock`, or the installed gems, at `stage: release`.
+Scan the real `Gemfile.lock`, or the installed gems, at `stage: build` on `main` and `stage: release` for a release.
 
 ## What you give up
 

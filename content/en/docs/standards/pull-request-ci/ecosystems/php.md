@@ -48,7 +48,7 @@ Unchanged from the [reference workflow]({{% relref "../reference-workflows" %}})
 
 ## Trusted-ref evaluation
 
-Scan the real `composer.lock` at `stage: release`.
+Scan the real `composer.lock` at `stage: build` on `main` and `stage: release` for a release.
 
 ## What you give up
 

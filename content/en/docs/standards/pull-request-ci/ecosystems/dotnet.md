@@ -56,7 +56,7 @@ Unchanged from the [reference workflow]({{% relref "../reference-workflows" %}})
 
 ## Trusted-ref evaluation
 
-Restore and scan the same way against the real checkout, at `stage: release`. Scanning the published output (`dotnet publish`) is the closest equivalent of the Java "deployed artifact" advice, but Sonatype's page does not state this for .NET.
+Restore and scan the same way against the real checkout, at `stage: build` on `main` and `stage: release` for a release. Scanning the published output (`dotnet publish`) is the closest equivalent of the Java "deployed artifact" advice, but Sonatype's page does not state this for .NET.
 
 ## What you give up
 

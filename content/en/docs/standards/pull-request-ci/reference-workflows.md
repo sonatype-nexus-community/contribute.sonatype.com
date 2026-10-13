@@ -226,7 +226,7 @@ permissions: {}
 
 jobs:
   evaluate:
-    name: Evaluate at release stage
+    name: Evaluate (build on main, release on a tag)
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -246,7 +246,8 @@ jobs:
           password: ${{ secrets.SONATYPE_LIFECYCLE_PASSWORD }}
           application-id: ${{ github.event.repository.name }}
           scan-targets: '.' # or the build output, per the ecosystem guide
-          stage: release
+          # Tags are releases; a push to main is CI. See "Which Lifecycle stage to use".
+          stage: ${{ startsWith(github.ref, 'refs/tags/') && 'release' || 'build' }}
 ```
 
 This workflow is only safe if the refs that trigger it are protected. A branch ruleset on `main` and a **tag ruleset** on the release tags are required, as described in the standard. If a Project releases some other way (a manual dispatch, a published GitHub Release), change the `on:` block to match and keep the protection requirement.

@@ -54,11 +54,11 @@ Two changes from the [reference workflow]({{% relref "../reference-workflows" %}
 - Set the repository variable `LIFECYCLE_SCAN_TARGETS` to `scan-input/image.tar`, so that the scan target is the single archive.
 - Raise `LIFECYCLE_SCAN_MAX_BYTES`. Images are routinely hundreds of megabytes to gigabytes, and the default of 512 MB will reject many.
 
-The archive is unpacked by the scanner, and an image tar contains whole filesystems. Of all the ecosystems, this one most depends on the open question about [the remaining exposure]({{% relref ".." %}}#the-remaining-exposure).
+An image archive is large and contains whole filesystems, so also see [the remaining exposure]({{% relref ".." %}}#the-remaining-exposure).
 
 ## Trusted-ref evaluation
 
-Build the image from the real checkout, save it, and scan the archive at `stage: release`. A Project that publishes the image should scan the same image it publishes.
+Build the image from the real checkout, save it, and scan the archive at `stage: build` on `main` and `stage: release` for a release. A Project that publishes the image should scan the same image it publishes.
 
 ## What you give up
 
