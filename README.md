@@ -30,8 +30,10 @@ This project is based from
 
 You'll need the following tools installed locally for development:
 
-- [Hugo Extended](https://gohugo.io) (>=0.128.0)
+- [Hugo Extended](https://gohugo.io) (>=0.167.0)
 - NPM
+- [Dart Sass](https://gohugo.io/functions/css/sass/#dart-sass) - install the embedded build with `npm install -g sass-embedded`
+  (the pure-JS `sass` package does not work with Hugo)
 
 You can find out more about how to install Hugo for your environment in our
 [Getting started](https://www.docsy.dev/docs/getting-started/#prerequisites-and-installation)
