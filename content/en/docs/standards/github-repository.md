@@ -53,10 +53,34 @@ The following Branch protection rules should be applied.
   * **Require review from Code Owners** Yes ✅
   * **Allow specified actors to bypass required pull requests** No ❌
 * **Require status checks to pass before merging** Yes ✅
+  * **Require branches to be up to date before merging** Yes ✅
   * *Checks according to [Code Quality]({{< ref "/docs/standards/code-quality" >}}) and [Dependency Management]({{< ref "/docs/standards/dependency-management" >}}) must be covered*
+  * *Every tier of [Pull Request CI & Secrets]({{< ref "/docs/standards/pull-request-ci" >}}) the Project has must be required - see [Required status checks](#required-status-checks)*
 * **Require signed commits** Yes ✅
 * **Allow force pushes** No ❌
 * **Allow deletions** No ❌
+
+##### Required status checks
+
+All tiers must run and pass before a change is merged. A tier that is not required is a tier that does not exist, so every check below is added to the `main` ruleset.
+
+| Check | Comes from | Applies to |
+|---|---|---|
+| The Project's CI result (one job that fails if any other CI job failed) | Tier 1 | Every Project |
+| `Lifecycle / develop` | Tier 2 | Every Project |
+| `Tier 3 / ...` (the Project names it, for example `Tier 3 / PRO acceptance`) | Tier 3 | Projects with tests that need a protected resource |
+| `SonarCloud Code Analysis` | [Code Quality]({{< ref "/docs/standards/code-quality" >}}) | Every Project |
+
+A few practical points:
+
+* **Use one Tier 1 check.** A CI workflow should end in a single job that depends on all the others and fails if any of them did not succeed. Require that job, and not each individual job. Then adding or renaming a job does not mean editing the ruleset.
+* **Tier 2 and Tier 3 report as commit statuses.** They run from separate workflows, so they report on the commit by name. Require the status name exactly as the workflow sets it.
+* **A commit that has not been approved for Tier 3 is blocked.** A Tier 3 status is attached to a specific commit. A Pull Request with no status for its latest commit cannot merge until a maintainer approves that commit, which is the intent.
+* **Branch protection that is configured as a "branch protection rule" works as well as a ruleset.** Prefer rulesets, because they can also protect tags.
+
+{{% alert color="warning" %}}
+A Project cannot merge its first Pull Request that adds these workflows if it also requires the checks they produce. Add the workflows first, and require the checks in the ruleset once they have run on `main`.
+{{% /alert %}}
 
 #### Actions
 

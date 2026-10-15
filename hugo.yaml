@@ -92,6 +92,14 @@ outputs:
   section: [HTML, print, RSS]
 
 params:
+  docsy:
+    plugins:
+      mermaid:
+        # Loaded from a CDN, so the version is pinned explicitly.
+        version: 11.17.2
+        options: |
+          { "theme": "neutral" }
+
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
     taxonomyCloud: [] #[tags, categories]
@@ -153,6 +161,9 @@ params:
 
   # User interface configuration
   ui:
+    # Docsy 0.14+ no longer forces a dark navbar with the primary colour as its background.
+    # Keep the always-dark navbar that the live site has always used.
+    navbar_theme: dark
     # Set to true to disable breadcrumb navigation.
     breadcrumb_disable: false
     # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar

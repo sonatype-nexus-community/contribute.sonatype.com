@@ -9,3 +9,6 @@ weight: 500
 We currently use GitHub Secrets for our Open Source Community projects.
 
 This is great but currently has one known drawback - PRs from Forks cannot access our secrets and as such Continous Integration GitHub Workflows will fail.
+
+
+See [Pull Request CI & Secrets](../pull-request-ci/) for the proposed standard on running automated checks for Pull Requests from forks without exposing secrets.

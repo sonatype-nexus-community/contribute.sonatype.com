@@ -14,3 +14,10 @@ $secondary: #3b4d96;
 Set primary font
 */
 $td-enable-google-fonts: false;
+
+/*
+Keep the navbar appearance used before Docsy 0.14: primary colour background.
+(Pairs with params.ui.navbar_theme: dark in hugo.yaml)
+*/
+$td-navbar-bg-color: $primary;
+$td-navbar-min-height: 4rem;
